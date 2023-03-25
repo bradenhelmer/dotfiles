@@ -1,0 +1,1 @@
+-- eventually a neovim setup script
