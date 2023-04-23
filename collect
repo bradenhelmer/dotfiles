@@ -1,0 +1,22 @@
+#!/bin/bash
+# Collects config files and pushes them to github
+
+# Neovim files
+cp ~/.config/nvim/coc-settings.json ~/dev/tools/src_cfgs/nvim/coc-settings.json
+cp ~/.config/nvim/legacy.vim ~/dev/tools/src_cfgs/nvim/legacy.vim
+cp ~/.config/nvim/init.lua ~/dev/tools/src_cfgs/nvim/init.lua
+
+# .bashrc
+cp ~/.bashrc ~/dev/tools/src_cfgs/bash/.bashrc
+
+# tmux
+cp ~/.tmux.conf ~/dev/tools/src_cfgs/tmux/.tmux.conf
+
+# auto git commit push pull
+if [ -z "$1" ]
+then
+    echo "enter a commit message"
+else
+    git commit -am "$1"
+    git push
+fi
