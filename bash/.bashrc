@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='/home/bradenhelmer/.oh-my-bash'
+export OSH='~/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random" it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="modern"
@@ -128,8 +128,8 @@ alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
 alias ccs='~/ti/ccstheia100/ccs/theia/ccstudio'
-alias class='cd /home/bradenhelmer/class'
-alias dev='cd /home/bradenhelmer/dev'
+alias class='cd ~/class'
+alias dev='cd ~/dev'
 alias e='exit'
 alias eclang='cd ~/dev/tools/llvm-project/clang'
 alias egrep='egrep --color=auto'
@@ -154,10 +154,12 @@ alias osrunm='python3 Bootstrap.py -parameters params.medium.txt'
 alias proj='cd ~/dev/projects'
 alias py='python3'
 alias tool='cd ~/dev/tools'
+alias zig='~/dev/tools/zig/build/stage3/bin/zig'
+alias zls='~/dev/tools/zls/zig-out/bin/zls'
 
 #PATH
-export PATH=/home/bradenhelmer/dev/tools/flutter/bin:$PATH
-export PATH=/home/bradenhelmer/.local/bin:$PATH
+export PATH=~/dev/tools/flutter/bin:$PATH
+export PATH=~/.local/bin:$PATH
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++

@@ -22,6 +22,8 @@ Plug 'APZelos/blamer.nvim'
 Plug 'matze/vim-move'
 Plug 'tpope/vim-surround'
 Plug 'sainnhe/gruvbox-material'
+Plug 'rhysd/vim-clang-format'
+Plug 'ziglang/zig.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -77,6 +79,7 @@ set shiftwidth=4
 set expandtab
 set rnu
 se cursorline
+set formatoptions-=co
 
 " floaterm
 let g:floaterm_keymap_new = '<Leader>ft'
@@ -282,7 +285,6 @@ nnoremap <leader>mt :call Test()<cr>
 " Quick build and Test
 nnoremap <leader>rt :call QBuildTest()<cr>
 " Format
-nnoremap <leader>cf :!clang-format -i %<cr><cr>
 
 " dart-vim-plugin
 let g:dart_style_guide = 2
@@ -302,5 +304,12 @@ xmap <Leader>di <Plug>VimspectorBalloonEval
 " Set shiftwidth and softtabstop to 2 spaces for C and C++ files
 autocmd FileType c,cpp,h setlocal shiftwidth=2 softtabstop=2
 
-
+" Clang format
+let g:clang_format#style_options = {
+        \ 'BasedOnStyle': 'google',
+        \ 'IndentWidth': 2,
+        \ 'ColumnLimit': 75
+      \ }
+let g:clang_format#executable = '/usr/local/bin/clang-format'
+nnoremap <leader>cf :ClangFormat<CR>
 
