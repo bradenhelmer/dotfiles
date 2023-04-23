@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Path to your oh-my-bash installation.
-export OSH='~/.oh-my-bash'
+export OSH='/home/bradenhelmer/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random" it'll load a random theme each time that oh-my-bash is loaded.
 OSH_THEME="modern"
@@ -123,11 +123,10 @@ source "$OSH"/oh-my-bash.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # My aliases
-alias cic='bind "set completion-ignore-case on"' # cic:          Make tab-completion case-insensitive
-alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
 alias ccs='~/ti/ccstheia100/ccs/theia/ccstudio'
+alias cic='bind "set completion-ignore-case on"' # cic:          Make tab-completion case-insensitive
 alias class='cd ~/class'
 alias dev='cd ~/dev'
 alias e='exit'
@@ -152,7 +151,9 @@ alias osrunh='python3 Bootstrap.py -parameters params.high.txt'
 alias osrunl='python3 Bootstrap.py -parameters params.low.txt'
 alias osrunm='python3 Bootstrap.py -parameters params.medium.txt'
 alias proj='cd ~/dev/projects'
+alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
+alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias tool='cd ~/dev/tools'
 alias zig='~/dev/tools/zig/build/stage3/bin/zig'
 alias zls='~/dev/tools/zls/zig-out/bin/zls'
