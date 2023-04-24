@@ -155,12 +155,12 @@ alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias tool='cd ~/dev/tools'
-alias zig='~/dev/tools/zig/build/stage3/bin/zig'
-alias zls='~/dev/tools/zls/zig-out/bin/zls'
 
 #PATH
 export PATH=~/dev/tools/flutter/bin:$PATH
 export PATH=~/.local/bin:$PATH
+export PATH=~/dev/tools/zig/build/stage3/bin:$PATH
+export PATH=~/dev/tools/zls/zig-out/bin:$PATH
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++

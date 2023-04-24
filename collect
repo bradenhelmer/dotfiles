@@ -1,5 +1,7 @@
 #!/bin/bash
 # Collects config files and pushes them to github
+OLD_DIR = $PWD
+cd ~/dev/tools/src_cfgs
 
 # Neovim files
 cp ~/.config/nvim/coc-settings.json ~/dev/tools/src_cfgs/nvim/coc-settings.json
@@ -20,3 +22,4 @@ else
     git commit -am "$1"
     git push
 fi
+cd "$OLD_DIR"

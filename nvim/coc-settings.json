@@ -9,10 +9,10 @@
           "directory": "/tmp/ccls"
         }
       }
+  }, 
+  "zls": {
+      "command": "~/dev/tools/zls/zig-out/bin/zls",
+      "filetypes": ["zig"]
   }
-},
-"zig.enabled": true,
-"zig.startUpMessage": true,
-"zig.path": "~/dev/tools/zls/zig-out/bin/zls",
-"zig.debugLog": false
+}
 }

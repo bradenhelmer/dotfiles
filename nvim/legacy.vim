@@ -24,6 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'sainnhe/gruvbox-material'
 Plug 'rhysd/vim-clang-format'
 Plug 'ziglang/zig.vim'
+Plug 'preservim/vimux'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
