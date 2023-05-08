@@ -153,6 +153,7 @@ alias osrunm='python3 Bootstrap.py -parameters params.medium.txt'
 alias proj='cd ~/dev/projects'
 alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
+alias screen='sudo systemctl start rrUpdate'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias tool='cd ~/dev/tools'
 
