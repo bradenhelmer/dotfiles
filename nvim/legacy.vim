@@ -25,6 +25,8 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'rhysd/vim-clang-format'
 Plug 'ziglang/zig.vim'
 Plug 'preservim/vimux'
+Plug 'tomasiser/vim-code-dark'
+Plug 'evanleck/vim-svelte'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -65,7 +67,8 @@ set number
 let mapleader = ","
 let g:python_host_prog = '/usr/bin/python3'
 set background=dark
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
+colorscheme codedark
 inoremap \\ <ESC> :!
 nnoremap \\ :!
 inoremap jj <ESC>
