@@ -9,14 +9,14 @@ Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse Plug '907th/vim-auto-save'
+Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug '907th/vim-auto-save'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'Shirk/vim-gas'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/playground'
 Plug 'rust-lang/rust.vim'
 Plug 'APZelos/blamer.nvim'
 Plug 'matze/vim-move'
@@ -24,9 +24,10 @@ Plug 'tpope/vim-surround'
 Plug 'sainnhe/gruvbox-material'
 Plug 'rhysd/vim-clang-format'
 Plug 'ziglang/zig.vim'
-Plug 'preservim/vimux'
 Plug 'tomasiser/vim-code-dark'
-Plug 'evanleck/vim-svelte'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -88,7 +89,7 @@ set formatoptions-=co
 " floaterm
 let g:floaterm_keymap_new = '<Leader>ft'
 let g:floaterm_keymap_toggle = '<Leader>t'
-nmap <c-t> :FloatermNew fff<cr>
+let g:floaterm_keymap_next = '<Leader>nt'
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore node_modules -U -g ""'
@@ -98,7 +99,7 @@ nnoremap <Leader>e :Files<Cr>
 let g:NERDTreeWinSize = 50 
 
 " vim-airline-themes
-let g:airline_theme = 'term'
+let g:airline_theme = 'dark'
 
 
 " vim-auto-save

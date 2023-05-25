@@ -8,7 +8,7 @@ esac
 export OSH='/home/bradenhelmer/.oh-my-bash'
 
 # Set name of the theme to load. Optionally, if you set this to "random" it'll load a random theme each time that oh-my-bash is loaded.
-OSH_THEME="modern"
+OSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # OMB_CASE_SENSITIVE="true"
@@ -162,6 +162,7 @@ export PATH=~/dev/tools/flutter/bin:$PATH
 export PATH=~/.local/bin:$PATH
 export PATH=~/dev/tools/zig/build/stage3/bin:$PATH
 export PATH=~/dev/tools/zls/zig-out/bin:$PATH
+export PATH=/usr/local/go/bin:$PATH
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++
