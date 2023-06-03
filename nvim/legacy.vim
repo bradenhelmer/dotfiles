@@ -2,29 +2,25 @@
 call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/indentLine'
-Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug '907th/vim-auto-save'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
-Plug 'Shirk/vim-gas'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'rust-lang/rust.vim'
+Plug 'Shirk/vim-gas'
 Plug 'APZelos/blamer.nvim'
 Plug 'matze/vim-move'
 Plug 'tpope/vim-surround'
 Plug 'sainnhe/gruvbox-material'
 Plug 'rhysd/vim-clang-format'
 Plug 'ziglang/zig.vim'
-Plug 'tomasiser/vim-code-dark'
+Plug 'Mofiqul/vscode.nvim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
@@ -69,7 +65,6 @@ let mapleader = ","
 let g:python_host_prog = '/usr/bin/python3'
 set background=dark
 " colorscheme gruvbox-material
-colorscheme codedark
 inoremap \\ <ESC> :!
 nnoremap \\ :!
 inoremap jj <ESC>
@@ -298,9 +293,6 @@ nmap <leader>df :DartFmt<cr>
 " emmet-vim
 let g:user_emmet_leader_key='<leader>'
 
-" vimspector
-" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
-
 " for normal mode - the word under the cursor
 nmap <Leader>di <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
@@ -318,3 +310,6 @@ let g:clang_format#style_options = {
 let g:clang_format#executable = '/usr/local/bin/clang-format'
 nnoremap <leader>cf :ClangFormat<CR>
 
+" Zig stuff
+let g:zig_fmt_autosave = 0
+nnoremap <leader>zf :!zig fmt % <cr><cr>

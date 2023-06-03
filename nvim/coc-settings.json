@@ -14,5 +14,6 @@
       "command": "~/dev/tools/zls/zig-out/bin/zls",
       "filetypes": ["zig"]
   }
-}
+},
+"snippets.ultisnips.pythonPrompt": false
 }
