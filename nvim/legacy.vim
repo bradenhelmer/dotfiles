@@ -1,6 +1,5 @@
 " plugins
 call plug#begin(expand('~/.config/nvim/plugged'))
-Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -80,11 +79,6 @@ set expandtab
 set rnu
 se cursorline
 set formatoptions-=co
-
-" floaterm
-let g:floaterm_keymap_new = '<Leader>ft'
-let g:floaterm_keymap_toggle = '<Leader>t'
-let g:floaterm_keymap_next = '<Leader>nt'
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore node_modules -U -g ""'
