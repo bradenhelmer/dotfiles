@@ -10,6 +10,7 @@ cp ~/.config/nvim/init.lua ~/dev/tools/src_cfgs/nvim/init.lua
 
 # .bashrc
 cp ~/.bashrc ~/dev/tools/src_cfgs/bash/.bashrc
+cp ~/.oh-my-bash/themes/customRR/customRR.theme.sh ~/dev/tools/src_cfgs/bash/customRR.theme.sh
 
 # tmux
 cp ~/.tmux.conf ~/dev/tools/src_cfgs/tmux/.tmux.conf
@@ -22,4 +23,4 @@ else
     git commit -am "$1"
     git push
 fi
-cd "$OLD_DIR"
+cd $OLD_DIR
