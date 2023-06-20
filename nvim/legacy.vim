@@ -307,3 +307,18 @@ nnoremap <leader>cf :ClangFormat<CR>
 " Zig stuff
 let g:zig_fmt_autosave = 0
 nnoremap <leader>zf :!zig fmt % <cr><cr>
+
+" " Django
+" function InsertDoublePercent()
+"     let line = getline('.')
+"     if line[col('.')-1] == '%' && line[col('.')-2] == '{'
+"         call append(line('.'), '%')
+"         execute "normal! jk"
+"     endif
+" endfunction
+
+" augroup InsertDoublePercentAuto
+"     autocmd!
+"     autocmd InsertCharPre * call InsertDoublePercent()
+" augroup end
+    
