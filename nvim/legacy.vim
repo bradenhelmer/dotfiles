@@ -79,6 +79,8 @@ set expandtab
 set rnu
 se cursorline
 set formatoptions-=co
+set autoindent smartindent
+set clipboard+=unnamedplus
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore node_modules -U -g ""'
