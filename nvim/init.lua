@@ -32,3 +32,4 @@ require('nvim-treesitter.parsers').get_parser_configs().asm = {
 
 -- Reload change
 vim.api.nvim_set_keymap('n', '<leader>so', ':lua vim.cmd([[ so ~/.config/nvim/legacy.vim ]])', { noremap = true, silent = true })
+

@@ -23,6 +23,9 @@ Plug 'Mofiqul/vscode.nvim'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'romgrk/barbar.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -81,6 +84,7 @@ se cursorline
 set formatoptions-=co
 set autoindent smartindent
 set clipboard+=unnamedplus
+" 
 
 " FZF
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore node_modules -U -g ""'
@@ -310,17 +314,56 @@ nnoremap <leader>cf :ClangFormat<CR>
 let g:zig_fmt_autosave = 0
 nnoremap <leader>zf :!zig fmt % <cr><cr>
 
-" " Django
-" function InsertDoublePercent()
-"     let line = getline('.')
-"     if line[col('.')-1] == '%' && line[col('.')-2] == '{'
-"         call append(line('.'), '%')
-"         execute "normal! jk"
-"     endif
-" endfunction
 
-" augroup InsertDoublePercentAuto
-"     autocmd!
-"     autocmd InsertCharPre * call InsertDoublePercent()
-" augroup end
-    
+" barbar.nvim
+" Move to previous/next
+nnoremap <silent>    <A-,> <Cmd>BufferPrevious<CR>
+nnoremap <silent>    <A-.> <Cmd>BufferNext<CR>
+
+" Re-order to previous/next
+nnoremap <silent>    <A-<> <Cmd>BufferMovePrevious<CR>
+nnoremap <silent>    <A->> <Cmd>BufferMoveNext<CR>
+
+" Goto buffer in position...
+nnoremap <silent>    <A-1> <Cmd>BufferGoto 1<CR>
+nnoremap <silent>    <A-2> <Cmd>BufferGoto 2<CR>
+nnoremap <silent>    <A-3> <Cmd>BufferGoto 3<CR>
+nnoremap <silent>    <A-4> <Cmd>BufferGoto 4<CR>
+nnoremap <silent>    <A-5> <Cmd>BufferGoto 5<CR>
+nnoremap <silent>    <A-6> <Cmd>BufferGoto 6<CR>
+nnoremap <silent>    <A-7> <Cmd>BufferGoto 7<CR>
+nnoremap <silent>    <A-8> <Cmd>BufferGoto 8<CR>
+nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
+nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
+
+" Pin/unpin buffer
+nnoremap <silent>    <A-p> <Cmd>BufferPin<CR>
+
+" Close buffer
+nnoremap <silent>    <A-c> <Cmd>BufferClose<CR>
+" Restore buffer
+nnoremap <silent>    <A-s-c> <Cmd>BufferRestore<CR>
+
+" Wipeout buffer
+"                          :BufferWipeout
+" Close commands
+"                          :BufferCloseAllButCurrent
+"                          :BufferCloseAllButVisible
+"                          :BufferCloseAllButPinned
+"                          :BufferCloseAllButCurrentOrPinned
+"                          :BufferCloseBuffersLeft
+"                          :BufferCloseBuffersRight
+
+" Magic buffer-picking mode
+nnoremap <silent> <C-p>    <Cmd>BufferPick<CR>
+nnoremap <silent> <C-p>    <Cmd>BufferPickDelete<CR>
+
+" Sort automatically by...
+nnoremap <silent> <Space>bb <Cmd>BufferOrderByBufferNumber<CR>
+nnoremap <silent> <Space>bd <Cmd>BufferOrderByDirectory<CR>
+nnoremap <silent> <Space>bl <Cmd>BufferOrderByLanguage<CR>
+nnoremap <silent> <Space>bw <Cmd>BufferOrderByWindowNumber<CR>
+
+" Other:
+" :BarbarEnable - enables barbar (enabled by default)
+" :BarbarDisable - very bad command, should never be used
