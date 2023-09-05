@@ -127,7 +127,7 @@ alias bsh='nvim ~/.bashrc'
 alias c='clear'
 alias ccs='~/ti/ccstheia100/ccs/theia/ccstudio'
 alias cic='bind "set completion-ignore-case on"' # cic:          Make tab-completion case-insensitive
-alias class='cd ~/class'
+alias class='cd ~/dev/school'
 alias dev='cd ~/dev'
 alias e='exit'
 alias eclang='cd ~/dev/tools/llvm-project/clang'
@@ -138,6 +138,7 @@ alias frc='flutter run -d chrome'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
+alias gf='/home/bradenhelmer/dev/tools/gf/gf2'
 alias grep='grep --color=auto'
 alias gst='git status'
 alias gtw='gnome-tweaks'
@@ -156,16 +157,19 @@ alias py='python3'
 alias screen='sudo systemctl start rrUpdate'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias tool='cd ~/dev/tools'
+alias tx='tmux'
 
 #PATH
 export PATH=~/dev/tools/flutter/bin:$PATH
 export PATH=~/.local/bin:$PATH
-export PATH=~/dev/tools/zig/build/stage3/bin:$PATH
+export PATH=~/dev/tools/zig/bild/stage3/bin:$PATH
 export PATH=~/dev/tools/zls/zig-out/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=~/dev/tools/swift/usr/bin:$PATH
+export PATH=/usr/local/include:$PATH
 
 
 export CC=/usr/local/bin/clang
-export CXX=/usr/local/bin/clang
-export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
+export CXX=/usr/local/bin/clang++
+export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
+

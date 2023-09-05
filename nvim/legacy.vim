@@ -367,3 +367,6 @@ nnoremap <silent> <Space>bw <Cmd>BufferOrderByWindowNumber<CR>
 " Other:
 " :BarbarEnable - enables barbar (enabled by default)
 " :BarbarDisable - very bad command, should never be used
+
+" JS Format
+nnoremap <leader>pr :!npx prettier --tab-width 4 % --write<CR><CR>
