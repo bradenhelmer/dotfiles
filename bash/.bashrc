@@ -162,14 +162,18 @@ alias tx='tmux'
 #PATH
 export PATH=~/dev/tools/flutter/bin:$PATH
 export PATH=~/.local/bin:$PATH
-export PATH=~/dev/tools/zig/bild/stage3/bin:$PATH
+export PATH=~/dev/tools/zig:$PATH
 export PATH=~/dev/tools/zls/zig-out/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=~/dev/tools/swift/usr/bin:$PATH
 export PATH=/usr/local/include:$PATH
 
-
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++
 export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
 
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+export MODULAR_HOME="/home/bradenhelmer/.modular"
+export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
+export PATH="~/.cargo/env:$PATH"

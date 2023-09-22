@@ -13,7 +13,21 @@
   "zls": {
       "command": "~/dev/tools/zls/zig-out/bin/zls",
       "filetypes": ["zig"]
+  },
+  "mojo": {
+      "command": "mojo-lsp-server",
+      "filetypes": ["mojo"]
   }
 },
-"snippets.ultisnips.pythonPrompt": false
+"snippets.ultisnips.pythonPrompt": false,
+"java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+"java.configuration.runtimes": [
+    {
+        "name": "JavaSE-17",
+        "path": "/usr/lib/jvm/java-17-openjdk-amd64",
+        "default": true
+    }
+],
+"java.completion.guessMethodArguments": false,
+"inlayHint.enableParameter": false
 }

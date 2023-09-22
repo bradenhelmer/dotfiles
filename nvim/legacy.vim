@@ -12,12 +12,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'thosakwe/vim-flutter'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/playground'
 Plug 'Shirk/vim-gas'
 Plug 'APZelos/blamer.nvim'
 Plug 'matze/vim-move'
 Plug 'tpope/vim-surround'
-Plug 'sainnhe/gruvbox-material'
 Plug 'rhysd/vim-clang-format'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'ziglang/zig.vim'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'othree/html5.vim'
@@ -26,6 +27,7 @@ Plug 'evanleck/vim-svelte', {'branch': 'main'}
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'lervag/vimtex'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -174,6 +176,11 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" Format entire document
+xmap <leader>ff  :CocCommand editor.action.formatDocument<CR>
+nmap <leader>ff  :CocCommand editor.action.formatDocument<CR>
+
 
 augroup mygroup
   autocmd!
@@ -370,3 +377,11 @@ nnoremap <silent> <Space>bw <Cmd>BufferOrderByWindowNumber<CR>
 
 " JS Format
 nnoremap <leader>pr :!npx prettier --tab-width 4 % --write<CR><CR>
+
+" Vimtex
+filetype plugin indent on
+syntax enable
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexrun'
+let maplocalleader = ","
+
