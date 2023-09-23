@@ -1,6 +1,6 @@
 #!/bin/bash
 # Collects config files and pushes them to github
-OLD_DIR = $PWD
+OLD_DIR=$PWD
 cd ~/dev/tools/src_cfgs
 
 # Neovim files

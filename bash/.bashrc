@@ -156,6 +156,7 @@ alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
 alias screen='sudo systemctl start rrUpdate'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
+alias surface='cd ~/dev/surface_server'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
 

@@ -11,6 +11,11 @@ function _omb_theme_PROMPT_COMMAND() {
     fi
 
     local base_directory="${_omb_prompt_bold_teal}\W${_omb_prompt_reset_color}"
+
+    if [[ -n "$(mount | grep ${PWD})" ]]; then
+        base_directory="(MNTED) ${base_directory}"
+    fi
+
     local GIT_THEME_PROMPT_PREFIX="${_omb_prompt_bold_navy}git:(${_omb_prompt_bold_brown}"
     local SVN_THEME_PROMPT_PREFIX="${_omb_prompt_bold_navy}svn:(${_omb_prompt_bold_brown}"
     local HG_THEME_PROMPT_PREFIX="${_omb_prompt_bold_navy}hg:(${_omb_prompt_bold_brown}"
@@ -26,6 +31,11 @@ function _omb_theme_PROMPT_COMMAND() {
     if [[ -n "$VIRTUAL_ENV" ]]; then
         local python_env="${_omb_prompt_bold_green}($(basename "$VIRTUAL_ENV" | sed 's/-.*$//'))${_omb_prompt_reset_color}"
         PS1+="${python_env} "
+    fi
+
+    if [[ -n "$SSH_CLIENT" ]]; then
+        local ssh_str="${_omb_prompt_bold_blue}("$USER"@SSH)${_omb_prompt_reset_color}"
+        PS1="${ssh_str}"+" ${PS1}"
     fi
 
     local scm_info=$(scm_prompt_info)
