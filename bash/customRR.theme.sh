@@ -12,10 +12,6 @@ function _omb_theme_PROMPT_COMMAND() {
 
     local base_directory="${_omb_prompt_bold_teal}\W${_omb_prompt_reset_color}"
 
-    if [[ -n "$(mount | grep ${PWD})" ]]; then
-        base_directory="(MNTED) ${base_directory}"
-    fi
-
     local GIT_THEME_PROMPT_PREFIX="${_omb_prompt_bold_navy}git:(${_omb_prompt_bold_brown}"
     local SVN_THEME_PROMPT_PREFIX="${_omb_prompt_bold_navy}svn:(${_omb_prompt_bold_brown}"
     local HG_THEME_PROMPT_PREFIX="${_omb_prompt_bold_navy}hg:(${_omb_prompt_bold_brown}"
