@@ -3,7 +3,7 @@
 # Script for setting up a new ubuntu machine
 
 # 1. Update repositories and install deps
-apt get update
+apt update
 apt install -y wget curl
 
 # 2. Install .oh-my-bash 
