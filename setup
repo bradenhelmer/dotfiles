@@ -7,7 +7,7 @@ apt update
 apt install -y wget curl
 
 # 2. Install .oh-my-bash 
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+bash "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 rm ~/.bashrc && mkdir -p ~/.oh-my-bash/themes/customRR && cp bash/customRR.theme.sh ~/.oh-my.bash/themes/customRR/
 cp bash/.bashrc ~/
 source ~/.bashrc
@@ -26,6 +26,8 @@ nvm use 17
 
 # Install LLVM, clang, ccls
 bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+sudo ln -s /usr/bin/clang-17 /usr/bin/clang
+sudo ln -s /usr/bin/clang++-17 /usr/bin/clang++
 apt install -y ccls
 
 mkdir -p ~/.config/nvim && cp nvim/* ~/.config/nvim/
