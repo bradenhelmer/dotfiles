@@ -125,36 +125,29 @@ source "$OSH"/oh-my-bash.sh
 # My aliases
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
-alias ccs='~/ti/ccstheia100/ccs/theia/ccstudio'
-alias cic='bind "set completion-ignore-case on"' # cic:          Make tab-completion case-insensitive
 alias class='cd ~/dev/school'
 alias dev='cd ~/dev'
 alias e='exit'
 alias eclang='cd ~/dev/tools/llvm-project/clang'
 alias egrep='egrep --color=auto'
 alias envim='nvim ~/.config/nvim/legacy.vim'
-alias fgrep='fgrep --color=auto'
 alias frc='flutter run -d chrome'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
-alias gf='/home/bradenhelmer/dev/tools/gf/gf2'
 alias grep='grep --color=auto'
 alias gst='git status'
-alias gtw='gnome-tweaks'
 alias l='ls -CF'
 alias la='ls -A'
 alias lc='llvm-config'
 alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias nvim='/usr/local/bin/nvim'
-alias osrunh='python3 Bootstrap.py -parameters params.high.txt'
-alias osrunl='python3 Bootstrap.py -parameters params.low.txt'
-alias osrunm='python3 Bootstrap.py -parameters params.medium.txt'
 alias proj='cd ~/dev/projects'
 alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
-alias screen='sudo systemctl start rrUpdate'
+alias sfc=' ssh -C bradenhelmer@192.168.86.249'
+alias sfcmnt='sudo sshfs -o allow_other,IdentityFile=/home/bradenhelmer/.ssh/id_rsa bradenhelmer@192.168.86.249:/ /home/bradenhelmer/dev/server/ && cd /home/bradenhelmer/dev/server/'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
 alias surface='cd ~/dev/surface_server'
 alias tool='cd ~/dev/tools'
@@ -171,10 +164,17 @@ export PATH=/usr/local/include:$PATH
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++
-export LIBRARY_PATH=/usr/local/lib:$LIBRARY_PATH
+# export CC=/usr/bin/gcc
+# export CXX=/usr/bin/g++
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 export MODULAR_HOME="/home/bradenhelmer/.modular"
 export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export PATH="~/.cargo/env:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

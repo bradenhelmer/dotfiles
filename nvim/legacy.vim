@@ -1,8 +1,6 @@
-" plugins
+ " plugins
 call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'tpope/vim-commentary'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
@@ -28,6 +26,8 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'romgrk/barbar.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'lervag/vimtex'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'rush-rs/tree-sitter-asm'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
