@@ -4,8 +4,6 @@ OLD_DIR=$PWD
 cd ~/dev/tools/src_cfgs
 
 # Neovim files
-cp ~/.config/nvim/coc-settings.json ~/dev/tools/src_cfgs/nvim/coc-settings.json
-cp ~/.config/nvim/legacy.vim ~/dev/tools/src_cfgs/nvim/legacy.vim
 cp ~/.config/nvim/init.lua ~/dev/tools/src_cfgs/nvim/init.lua
 
 # .bashrc
