@@ -146,6 +146,7 @@ alias nvim='/usr/local/bin/nvim'
 alias proj='cd ~/dev/projects'
 alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
+alias python='python3'
 alias sfc=' ssh -C bradenhelmer@192.168.86.249'
 alias sfcmnt='sudo sshfs -o allow_other,IdentityFile=/home/bradenhelmer/.ssh/id_rsa bradenhelmer@192.168.86.249:/ /home/bradenhelmer/dev/server/ && cd /home/bradenhelmer/dev/server/'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
@@ -167,14 +168,17 @@ export CXX=/usr/local/bin/clang++
 # export CC=/usr/bin/gcc
 # export CXX=/usr/bin/g++
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+export CXX_INCLUDE_PATH=/usr/local/include/c++/v1/
 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
 export MODULAR_HOME="/home/bradenhelmer/.modular"
 export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export PATH="~/.cargo/env:$PATH"
+export PATH="/home/bradenhelmer/dev/tools/emsdk:$PATH"
+export PATH="/home/bradenhelmer/dev/tools/emsdk/upstream/emscripten:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
