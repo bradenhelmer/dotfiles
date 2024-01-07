@@ -5,6 +5,7 @@ cd ~/dev/tools/src_cfgs
 
 # Neovim files
 cp ~/.config/nvim/init.lua ~/dev/tools/src_cfgs/nvim/init.lua
+cp ~/.config/nvim/lua/* ~/dev/tools/src_cfgs/nvim/lua/
 
 # .bashrc
 cp ~/.bashrc ~/dev/tools/src_cfgs/bash/.bashrc
