@@ -55,7 +55,6 @@ vim.g.auto_save_events = {"InsertLeave", "TextChanged"}
 vim.g.auto_save = 1
 
 -- fzf
-vim.cmd("let $FZF_DEFAULTS_COMMAND = 'ag --hidden --ignore node_modules -U -g \"\"'")
 vim.keymap.set('n', '<Leader>e', ':Files<CR>')
 
 -- barbar.nvim

@@ -1,55 +1,74 @@
 -- LSP Management
 local lspconfig = require('lspconfig')
-local util = lspconfig.util
+local util = require 'lspconfig.util'
 
 -- Keymaps
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
-vim.api.nvim_create_autocmd('LspAttach', {
+-- Format function kept seperate from attach function
+function Format()
+	vim.lsp.buf.format({
+		async = true,
+	})
+end
 
-    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua Format()<CR>", opts)
 
-    callback = function(ev)
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+function CodeAction()
+	vim.lsp.buf.code_action()
+end
 
-        local opts = { noremap = true, silent = true }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({'n', 'v'}, '<Leader>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<Leader>ff', function() vim.lsp.buf.format { async = true} end, opts)
-    end
-})
+vim.api.nvim_set_keymap('n', '<leader>ca', "<cmd>lua CodeAction()<CR>", opts)
+vim.api.nvim_set_keymap('v', '<leader>ca', "<cmd>lua CodeAction()<CR>", opts)
+
+local on_attach = function(client, buffer)
+	vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gD', "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gd', "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(buffer, 'n', 'K', "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gi', "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(buffer, 'n', '<C-k>', "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>rn', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gr', "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+end
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- CCLS
-lspconfig.ccls.setup{
-    filetypes = {
-        "c",
-        "cc",
-        "cu",
-        "cpp",
-        "c++",
-        "objc",
-        "objcpp",
-        "h",
-        "inc"
-    },
-    init_options = {
-        cache = {
-            directory = "/tmp/ccls"
-        }
-    },
-    root_dir = util.root_pattern('compile_commands.json', '.ccls')
-
+lspconfig.ccls.setup {
+	filetypes = {
+		"c",
+		"cuda",
+		"cpp",
+		"objc",
+		"objcpp",
+		"h",
+		"inc"
+	},
+	init_options = {
+		cache = {
+			directory = "/tmp/ccls"
+		}
+	},
+	capabilities = capabilities,
+	on_attach = on_attach
 }
 
 -- TableGen
-lspconfig.tblgen_lsp_server.setup{}
+lspconfig.tblgen_lsp_server.setup {
+	capabilities = capabilities,
+	on_attach = on_attach,
+    root_dir = function(fname)
+      return util.root_pattern 'tablegen_compile_commands.yml'(fname) or util.find_git_ancestor(fname)
+    end,
+}
 
+lspconfig.lua_ls.setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}

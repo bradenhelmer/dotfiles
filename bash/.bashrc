@@ -125,13 +125,12 @@ source "$OSH"/oh-my-bash.sh
 # My aliases
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
+alias cdnvim='cd ~/.config/nvim'
 alias class='cd ~/dev/school'
 alias dev='cd ~/dev'
 alias e='exit'
-alias eclang='cd ~/dev/tools/llvm-project/clang'
 alias egrep='egrep --color=auto'
-alias envim='nvim ~/.config/nvim/legacy.vim'
-alias frc='flutter run -d chrome'
+alias envim='nvim ~/.config/nvim/init.lua'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
@@ -147,12 +146,10 @@ alias proj='cd ~/dev/projects'
 alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
 alias python='python3'
-alias sfc=' ssh -C bradenhelmer@192.168.86.249'
-alias sfcmnt='sudo sshfs -o allow_other,IdentityFile=/home/bradenhelmer/.ssh/id_rsa bradenhelmer@192.168.86.249:/ /home/bradenhelmer/dev/server/ && cd /home/bradenhelmer/dev/server/'
 alias src='source ~/.bashrc'                # src:          Reload .bashrc file
-alias surface='cd ~/dev/surface_server'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
+alias txnvim='nvim ~/.tmux.conf'
 
 #PATH
 export PATH=~/dev/tools/flutter/bin:$PATH
@@ -162,6 +159,7 @@ export PATH=~/dev/tools/zls/zig-out/bin:$PATH
 export PATH=/usr/local/go/bin:$PATH
 export PATH=~/dev/tools/swift/usr/bin:$PATH
 export PATH=/usr/local/include:$PATH
+export PATH=/usr/local/bin:$PATH
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++
@@ -182,3 +180,10 @@ export PATH="/home/bradenhelmer/dev/tools/emsdk/upstream/emscripten:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# FZF Stuff
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export FZF_COMPLETION_TRIGGER='""'
+export FZF_COMPLETION_OPTS='--border --info=inline'
+
