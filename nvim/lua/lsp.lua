@@ -63,9 +63,10 @@ lspconfig.ccls.setup {
 lspconfig.tblgen_lsp_server.setup {
 	capabilities = capabilities,
 	on_attach = on_attach,
-    root_dir = function(fname)
-      return util.root_pattern 'tablegen_compile_commands.yml'(fname) or util.find_git_ancestor(fname)
-    end,
+	cmd = {
+		"tblgen-lsp-server",
+		"--tablegen-compilation-database=build/tablegen_compile_commands.yml"
+	}
 }
 
 lspconfig.lua_ls.setup {

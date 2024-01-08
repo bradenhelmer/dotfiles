@@ -106,7 +106,7 @@ cmp.setup({
         { name = 'nvim_lsp' },
         { name = 'ultisnips' },
         { name = 'vim-snippets' },
-        {{ name = 'buffer' }}
+        { name = 'buffer' }
     })
 })
 
