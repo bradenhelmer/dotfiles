@@ -184,6 +184,6 @@ export NVM_DIR="$HOME/.nvm"
 # FZF Stuff
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export FZF_COMPLETION_TRIGGER='""'
+export FZF_COMPLETION_TRIGGER="**"
 export FZF_COMPLETION_OPTS='--border --info=inline'
 

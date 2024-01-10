@@ -18,12 +18,25 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua Format()<CR>", opts)
 
+-- Same with code action
 function CodeAction()
 	vim.lsp.buf.code_action()
 end
 
 vim.api.nvim_set_keymap('n', '<leader>ca', "<cmd>lua CodeAction()<CR>", opts)
 vim.api.nvim_set_keymap('v', '<leader>ca', "<cmd>lua CodeAction()<CR>", opts)
+
+-- LSP Toggler
+local LspStatus = true
+function Toggle_lsp()
+	if LspStatus then
+		vim.cmd(":LspStop<CR>")
+	else
+		vim.cmd(":LspStart<CR>")
+	end
+	LspStatus = not LspStatus
+end
+vim.api.nvim_set_keymap('n', '<leader>ls', "<cmd>lua Toggle_lsp()<CR>", opts)
 
 local on_attach = function(client, buffer)
 	vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -69,7 +82,14 @@ lspconfig.tblgen_lsp_server.setup {
 	}
 }
 
+-- Lua
 lspconfig.lua_ls.setup {
+	capabilities = capabilities,
+	on_attach = on_attach
+}
+
+-- CMake
+lspconfig.cmake.setup {
 	capabilities = capabilities,
 	on_attach = on_attach
 }
