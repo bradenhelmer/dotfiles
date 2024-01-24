@@ -36,6 +36,7 @@ function Toggle_lsp()
 	end
 	LspStatus = not LspStatus
 end
+
 vim.api.nvim_set_keymap('n', '<leader>ls', "<cmd>lua Toggle_lsp()<CR>", opts)
 
 local on_attach = function(client, buffer)
@@ -81,6 +82,9 @@ lspconfig.tblgen_lsp_server.setup {
 		"--tablegen-compilation-database=build/tablegen_compile_commands.yml"
 	}
 }
+
+-- Python
+lspconfig.pyright.setup {}
 
 -- Lua
 lspconfig.lua_ls.setup {

@@ -163,11 +163,11 @@ export PATH=/usr/local/bin:$PATH
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++
-# export CC=/usr/bin/gcc
-# export CXX=/usr/bin/g++
+# export CC=/usr/bin/gcc-12
+# export CXX=/usr/bin/g++-12
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-export CXX_INCLUDE_PATH=/usr/local/include/c++/v1/
+export CMAKE_GENERATOR=Ninja
 
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 
@@ -186,4 +186,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export FZF_COMPLETION_TRIGGER="**"
 export FZF_COMPLETION_OPTS='--border --info=inline'
+
+# NCSU Arc 
+export SSHARC="bthelmer@arc.csc.ncsu.edu"
 

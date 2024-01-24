@@ -40,7 +40,8 @@ require("lazy").setup({
 	"SirVer/ultisnips",
 	"quangnguyen30192/cmp-nvim-ultisnips",
 	"Raimondi/delimitMate",
-	"jiangmiao/auto-pairs"
+	"jiangmiao/auto-pairs",
+	"bradenhelmer/nvim-syncer"
 })
 
 -- VsCode Theme
@@ -100,7 +101,6 @@ cmp.setup({
 		['<S-TAB>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = true }),
 	}),
 
 	sources = cmp.config.sources({
@@ -135,3 +135,10 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
+
+-- nvim-syncer
+local syncer = require("nvim-syncer")
+if syncer ~= nil then
+	vim.keymap.set('n', "<leader>sd", ":SyncDown<CR>")
+	vim.keymap.set('n', "<leader>su", ":SyncUp<CR>")
+end

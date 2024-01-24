@@ -49,6 +49,7 @@ vim.keymap.set('n', '<leader><tab>', '<c-w>w')
 vim.keymap.set('n', '<c-s>', ':w<cr>')
 vim.keymap.set('i', '<c-s>', '<esc>:w<cr>a')
 vim.keymap.set('n', '<leader>x', ':Explore<cr>')
+vim.keymap.set('n', '<leader>R', ":source " .. vim.fn.stdpath('config') .. "/init.lua<CR>")
 
 -- MLIR Stuff
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
