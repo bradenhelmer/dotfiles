@@ -101,6 +101,7 @@ cmp.setup({
 		['<S-TAB>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
 		['<C-Space>'] = cmp.mapping.complete(),
 		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm(),
 	}),
 
 	sources = cmp.config.sources({
