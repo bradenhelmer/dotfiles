@@ -41,7 +41,8 @@ require("lazy").setup({
 	"quangnguyen30192/cmp-nvim-ultisnips",
 	"Raimondi/delimitMate",
 	"jiangmiao/auto-pairs",
-	"bradenhelmer/nvim-syncer"
+	"bradenhelmer/nvim-syncer",
+	-- "mfussenegger/nvim-jdtls"
 })
 
 -- VsCode Theme
@@ -138,8 +139,6 @@ cmp.setup.cmdline(':', {
 })
 
 -- nvim-syncer
-local syncer = require("nvim-syncer")
-if syncer ~= nil then
-	vim.keymap.set('n', "<leader>sd", ":SyncDown<CR>")
-	vim.keymap.set('n', "<leader>su", ":SyncUp<CR>")
-end
+local nvim_syncer = require("nvim-syncer")
+vim.keymap.set('n', "<leader>sd", ":SyncDown<CR>")
+vim.keymap.set('n', "<leader>su", ":SyncUp<CR>")
