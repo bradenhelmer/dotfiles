@@ -58,3 +58,16 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.opt.filetype = "cpp"
 	end
 })
+
+-- Quick Debug Statments
+vim.keymap.set('n', '<leader>T', function()
+	local filetype = vim.bo.filetype
+	if filetype == "cpp" then
+		vim.cmd("normal ostd::cout << \"TEST\";")
+	elseif filetype == "python" then
+		vim.cmd("normal oprint(\"Test\")")
+	elseif filetype == "c" then
+		vim.cmd("normal oprintf(\"Test\\n\")")
+	end
+end)
+
