@@ -131,6 +131,7 @@ alias dev='cd ~/dev'
 alias e='exit'
 alias egrep='egrep --color=auto'
 alias envim='nvim ~/.config/nvim/init.lua'
+alias f='cd $(find ~/* -type d | fzf)'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
@@ -176,6 +177,8 @@ export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH
 export PATH="~/.cargo/env:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/emsdk:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/emsdk/upstream/emscripten:$PATH"
+export PATH="/usr/local/cuda/bin:$PATH"
+export CUDA_HOME="/usr/local/cuda"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

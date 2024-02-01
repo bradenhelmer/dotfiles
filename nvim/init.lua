@@ -36,7 +36,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "cpp", "h", "c" },
+	pattern = { "cuda", "cpp", "h", "c" },
 	callback = function()
 		vim.opt_local.shiftwidth = 2
 	end
@@ -66,8 +66,8 @@ vim.keymap.set('n', '<leader>T', function()
 		vim.cmd("normal ostd::cout << \"TEST\";")
 	elseif filetype == "python" then
 		vim.cmd("normal oprint(\"Test\")")
-	elseif filetype == "c" then
-		vim.cmd("normal oprintf(\"Test\\n\")")
+	elseif filetype == "c" or filetype == "cuda" then
+		vim.cmd("normal oprintf(\"Test\\n\");")
 	end
 end)
 
