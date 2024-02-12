@@ -71,3 +71,11 @@ vim.keymap.set('n', '<leader>T', function()
 	end
 end)
 
+vim.api.nvim_create_autocmd("FileType",
+	{
+		pattern = { "java" },
+		callback = function()
+			vim.keymap.set('n', "<leader>ff",
+				":!clang-format -i --style=\"{BasedOnStyle: Google, IndentWidth: 4}\" %<CR><CR>")
+		end
+	})

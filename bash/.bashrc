@@ -153,14 +153,14 @@ alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
 
 #PATH
-export PATH=~/dev/tools/flutter/bin:$PATH
-export PATH=~/.local/bin:$PATH
-export PATH=~/dev/tools/zig:$PATH
-export PATH=~/dev/tools/zls/zig-out/bin:$PATH
-export PATH=/usr/local/go/bin:$PATH
-export PATH=~/dev/tools/swift/usr/bin:$PATH
-export PATH=/usr/local/include:$PATH
-export PATH=/usr/local/bin:$PATH
+export PATH="~/dev/tools/flutter/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
+export PATH="~/dev/tools/zig:$PATH"
+export PATH="~/dev/tools/zls/zig-out/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="~/dev/tools/swift/usr/bin:$PATH"
+export PATH="/usr/local/include:$PATH"
+export PATH="/usr/local/bin:$PATH"
 
 export CC=/usr/local/bin/clang
 export CXX=/usr/local/bin/clang++
@@ -170,7 +170,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 export CMAKE_GENERATOR=Ninja
 
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 
 export MODULAR_HOME="/home/bradenhelmer/.modular"
 export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"

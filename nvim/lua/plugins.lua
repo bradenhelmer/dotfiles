@@ -42,7 +42,7 @@ require("lazy").setup({
 	"Raimondi/delimitMate",
 	"jiangmiao/auto-pairs",
 	"bradenhelmer/nvim-syncer",
-	-- "mfussenegger/nvim-jdtls"
+	"folke/neodev.nvim"
 })
 
 -- VsCode Theme
