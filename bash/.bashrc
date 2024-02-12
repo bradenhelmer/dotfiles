@@ -143,11 +143,12 @@ alias lc='llvm-config'
 alias ll='ls -alF'
 alias ls='ls --color=auto'
 alias nvim='/usr/local/bin/nvim'
+alias vim='/usr/local/bin/nvim'
 alias proj='cd ~/dev/projects'
 alias pshconf='~/dev/tools/src_cfgs/collect'
 alias py='python3'
 alias python='python3'
-alias src='source ~/.bashrc'                # src:          Reload .bashrc file
+alias src='source ~/.bashrc'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
@@ -192,4 +193,3 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 
 # NCSU Arc 
 export SSHARC="bthelmer@arc.csc.ncsu.edu"
-
