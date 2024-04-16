@@ -123,6 +123,7 @@ source "$OSH"/oh-my-bash.sh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # My aliases
+alias arc='ssh $SSHARC'
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
 alias cdnvim='cd ~/.config/nvim'
@@ -163,8 +164,8 @@ export PATH="~/dev/tools/swift/usr/bin:$PATH"
 export PATH="/usr/local/include:$PATH"
 export PATH="/usr/local/bin:$PATH"
 
-export CC=/usr/local/bin/clang
-export CXX=/usr/local/bin/clang++
+# export CC=/usr/local/bin/clang
+# export CXX=/usr/local/bin/clang++
 # export CC=/usr/bin/gcc-12
 # export CXX=/usr/bin/g++-12
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
@@ -176,10 +177,6 @@ export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export MODULAR_HOME="/home/bradenhelmer/.modular"
 export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export PATH="~/.cargo/env:$PATH"
-export PATH="/home/bradenhelmer/dev/tools/emsdk:$PATH"
-export PATH="/home/bradenhelmer/dev/tools/emsdk/upstream/emscripten:$PATH"
-export PATH="/usr/local/cuda/bin:$PATH"
-export CUDA_HOME="/usr/local/cuda"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -193,3 +190,14 @@ export FZF_COMPLETION_OPTS='--border --info=inline'
 
 # NCSU Arc 
 export SSHARC="bthelmer@arc.csc.ncsu.edu"
+
+# NVHPC
+export INCLUDE_PATH="/usr/local/include:$INCLUDE_PATH"
+export INCLUDE_PATH="/usr/include:$INCLUDE_PATH"
+
+export TOOLS="/home/bradenhelmer/dev/tools"
+export PROJECTS="/home/bradenhelmer/dev/projects"
+export CUDA_HOME="/usr/local/hpc_sdk/Linux_x86_64/24.1/cuda"
+export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
+export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH

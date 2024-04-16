@@ -59,6 +59,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.ll" },
+	callback = function()
+		vim.opt.filetype = "llvm"
+	end
+})
+
 -- Quick Debug Statments
 vim.keymap.set('n', '<leader>T', function()
 	local filetype = vim.bo.filetype
@@ -71,11 +78,29 @@ vim.keymap.set('n', '<leader>T', function()
 	end
 end)
 
+vim.keymap.set('n', '<leader>bg', function()
+	local bg = vim.opt.background:get()
+	if bg == "dark" then
+		vim.opt.background = "light"
+	else
+		vim.opt.background = "dark"
+	end
+end)
+
 vim.api.nvim_create_autocmd("FileType",
 	{
 		pattern = { "java" },
 		callback = function()
 			vim.keymap.set('n', "<leader>ff",
 				":!clang-format -i --style=\"{BasedOnStyle: Google, IndentWidth: 4}\" %<CR><CR>")
+		end
+	})
+
+vim.api.nvim_create_autocmd("FileType",
+	{
+		pattern = { "python" },
+		callback = function()
+			vim.keymap.set('n', "<leader>ff",
+				":!black %<CR><CR>")
 		end
 	})

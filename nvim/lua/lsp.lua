@@ -87,21 +87,8 @@ lspconfig.tblgen_lsp_server.setup {
 	}
 }
 
--- Java
--- lspconfig.java_language_server.setup {
--- 	cmd = {
--- 		"java-language-server"
--- 	}
--- }
-
 -- Python
 lspconfig.pyright.setup {}
-
--- Lua
-lspconfig.lua_ls.setup {
-	capabilities = capabilities,
-	on_attach = on_attach
-}
 
 -- CMake
 lspconfig.cmake.setup {

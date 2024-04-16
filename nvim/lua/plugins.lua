@@ -40,10 +40,14 @@ require("lazy").setup({
 	"SirVer/ultisnips",
 	"quangnguyen30192/cmp-nvim-ultisnips",
 	"Raimondi/delimitMate",
-	"jiangmiao/auto-pairs",
+	-- "jiangmiao/auto-pairs",
 	"bradenhelmer/nvim-syncer",
-	"folke/neodev.nvim"
+	"folke/neodev.nvim",
+	"sindrets/diffview.nvim",
+	"chrisbra/unicode.vim"
 })
+
+vim.keymap.set('n', '<leader>lz', ':Lazy<CR>')
 
 -- VsCode Theme
 vim.opt.background = 'dark'
