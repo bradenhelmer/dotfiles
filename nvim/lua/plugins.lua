@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"tpope/vim-commentary",
+	"numToStr/Comment.nvim",
 	"airblade/vim-gitgutter",
 	"Yggdroot/indentLine",
 	"907th/vim-auto-save",
@@ -40,7 +40,7 @@ require("lazy").setup({
 	"SirVer/ultisnips",
 	"quangnguyen30192/cmp-nvim-ultisnips",
 	"Raimondi/delimitMate",
-	-- "jiangmiao/auto-pairs",
+	"windwp/nvim-autopairs",
 	"bradenhelmer/nvim-syncer",
 	"folke/neodev.nvim",
 	"sindrets/diffview.nvim",
@@ -146,3 +146,9 @@ cmp.setup.cmdline(':', {
 local nvim_syncer = require("nvim-syncer")
 vim.keymap.set('n', "<leader>sd", ":SyncDown<CR>")
 vim.keymap.set('n', "<leader>su", ":SyncUp<CR>")
+
+-- Comment
+require('Comment').setup()
+
+-- Autopairs
+require('nvim-autopairs').setup()

@@ -98,3 +98,6 @@ lspconfig.cmake.setup {
 
 -- Bash
 lspconfig.bashls.setup {}
+
+-- Java
+lspconfig.jdtls.setup {}

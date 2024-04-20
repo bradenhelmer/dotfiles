@@ -132,7 +132,7 @@ alias dev='cd ~/dev'
 alias e='exit'
 alias egrep='egrep --color=auto'
 alias envim='nvim ~/.config/nvim/init.lua'
-alias f='cd $(find ~/* -type d | fzf)'
+alias f='cd $(find ~/ -mindepth 1 -type d 2>/dev/null | fzf)'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
@@ -163,28 +163,27 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="~/dev/tools/swift/usr/bin:$PATH"
 export PATH="/usr/local/include:$PATH"
 export PATH="/usr/local/bin:$PATH"
-
-# export CC=/usr/local/bin/clang
-# export CXX=/usr/local/bin/clang++
-# export CC=/usr/bin/gcc-12
-# export CXX=/usr/bin/g++-12
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-export CMAKE_GENERATOR=Ninja
-
-export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
-
-export MODULAR_HOME="/home/bradenhelmer/.modular"
+export PATH="/home/bradenhelmer/dev/tools/jdtls/bin:$PATH"
 export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
 export PATH="~/.cargo/env:$PATH"
+export PATH="/home/bradenhelmer/dev/tools/gradle-8.7/bin:$PATH"
 
+# Linker
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH
+
+# JAVA
+export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
+export CLASSPATH="/usr/local/lib:$CLASSPATH"
+
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # FZF Stuff
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 export FZF_COMPLETION_TRIGGER="**"
 export FZF_COMPLETION_OPTS='--border --info=inline'
 
@@ -195,9 +194,10 @@ export SSHARC="bthelmer@arc.csc.ncsu.edu"
 export INCLUDE_PATH="/usr/local/include:$INCLUDE_PATH"
 export INCLUDE_PATH="/usr/include:$INCLUDE_PATH"
 
+# Random
 export TOOLS="/home/bradenhelmer/dev/tools"
 export PROJECTS="/home/bradenhelmer/dev/projects"
 export CUDA_HOME="/usr/local/hpc_sdk/Linux_x86_64/24.1/cuda"
 export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
 export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
-export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH
+export MODULAR_HOME="/home/bradenhelmer/.modular"
