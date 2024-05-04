@@ -132,7 +132,8 @@ alias dev='cd ~/dev'
 alias e='exit'
 alias egrep='egrep --color=auto'
 alias envim='nvim ~/.config/nvim/init.lua'
-alias f='cd $(find ~/ -mindepth 1 -type d 2>/dev/null | fzf)'
+alias f='cd $(find ~/dev -mindepth 1 -type d 2>/dev/null | fzf)'
+alias fr='cd $(find ~/ -mindepth 1 -type d 2>/dev/null | fzf)'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
@@ -153,6 +154,8 @@ alias src='source ~/.bashrc'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
+
+export EDITOR=nvim
 
 #PATH
 export PATH="~/dev/tools/flutter/bin:$PATH"
