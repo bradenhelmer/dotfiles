@@ -70,7 +70,7 @@ lspconfig.ccls.setup {
 		}
 	},
 	root_dir = function(fname)
-		local root_files = { 'compile_commands.json', '.ccls' }
+		local root_files = { 'compile_commands.json', '.ccls', 'build' }
 		return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname) or vim.fn.getcwd()
 	end,
 	capabilities = capabilities,
@@ -88,7 +88,7 @@ lspconfig.tblgen_lsp_server.setup {
 }
 
 -- Python
-lspconfig.pyright.setup {}
+lspconfig.pyright.setup { capabilities = capabilities, on_attach = on_attach }
 
 -- CMake
 lspconfig.cmake.setup {
@@ -97,7 +97,36 @@ lspconfig.cmake.setup {
 }
 
 -- Bash
-lspconfig.bashls.setup {}
+lspconfig.bashls.setup { capabilities = capabilities, on_attach = on_attach }
 
 -- Java
-lspconfig.jdtls.setup {}
+lspconfig.jdtls.setup { capabilities = capabilities, on_attach = on_attach }
+
+lspconfig.lua_ls.setup {
+	on_init = function(client)
+		local path = client.workspace_folders[1].name
+		if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
+			return
+		end
+
+		client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+			runtime = {
+				version = 'LuaJIT'
+			},
+			-- Make the server aware of Neovim runtime files
+			workspace = {
+				checkThirdParty = false,
+				library = {
+					vim.env.VIMRUNTIME
+				}
+				-- or pull in all of 'runtimepath'. NOTE: this is a lot slower
+				-- library = vim.api.nvim_get_runtime_file("", true)
+			}
+		})
+	end,
+	settings = {
+		Lua = {}
+	},
+	capabilities = capabilities,
+	on_attach = on_attach
+}

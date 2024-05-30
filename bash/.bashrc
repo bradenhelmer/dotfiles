@@ -132,8 +132,9 @@ alias dev='cd ~/dev'
 alias e='exit'
 alias egrep='egrep --color=auto'
 alias envim='nvim ~/.config/nvim/init.lua'
+alias exp='cd ~/dev/exploratory'
 alias f='cd $(find ~/dev -mindepth 1 -type d 2>/dev/null | fzf)'
-alias fr='cd $(find ~/ -mindepth 1 -type d 2>/dev/null | fzf)'
+alias ff='cd $(find ~/ -mindepth 1 -type d 2>/dev/null | fzf)'
 alias ga='git add .'
 alias gcm='git commit -am'
 alias gd='git diff .'
@@ -156,6 +157,7 @@ alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
 
 export EDITOR=nvim
+export VIMRUNTIME="/home/bradenhelmer/dev/tools/neovim/runtime/"
 
 #PATH
 export PATH="~/dev/tools/flutter/bin:$PATH"
@@ -204,3 +206,4 @@ export CUDA_HOME="/usr/local/hpc_sdk/Linux_x86_64/24.1/cuda"
 export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
 export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
 export MODULAR_HOME="/home/bradenhelmer/.modular"
+. "$HOME/.cargo/env"

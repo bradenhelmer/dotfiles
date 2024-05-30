@@ -20,7 +20,7 @@ vim.cmd.cnoreabbrev({ "Qall", "qall" })
 -- Setters and other misc config/globals
 vim.opt.cursorline = true
 vim.opt.syntax = 'on'
-vim.opt.grepprg = 'ag --nogroup --nocolor'
+vim.opt.grepprg = 'ag --nogroup --nocolor -i'
 vim.opt.number = true
 vim.opt.encoding = 'utf-8'
 vim.opt.mouse = 'a'
@@ -34,6 +34,7 @@ vim.opt.cindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
+vim.opt.scrolloff = 10
 
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "cuda", "cpp", "h", "c" },
@@ -50,12 +51,20 @@ vim.keymap.set('n', '<c-s>', ':w<cr>')
 vim.keymap.set('i', '<c-s>', '<esc>:w<cr>a')
 vim.keymap.set('n', '<leader>x', ':Explore<cr>')
 vim.keymap.set('n', '<leader>R', ":source " .. vim.fn.stdpath('config') .. "/init.lua<CR>")
+vim.keymap.set('n', '<leader>so', function() vim.opt.scrolloff = 999 - vim.o.scrolloff end)
 
--- MLIR Stuff
+-- LLVM / MLIR Stuff
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.cpp.inc", "*.h.inc" },
+	pattern = { "*.inc", "*.def" },
 	callback = function()
 		vim.opt.filetype = "cpp"
+	end
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.mlir" },
+	callback = function()
+		vim.opt.filetype = "mlir"
 	end
 })
 
@@ -65,7 +74,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.opt.filetype = "llvm"
 	end
 })
-
 -- Quick Debug Statments
 vim.keymap.set('n', '<leader>T', function()
 	local filetype = vim.bo.filetype
@@ -78,6 +86,7 @@ vim.keymap.set('n', '<leader>T', function()
 	end
 end)
 
+-- Change Background
 vim.keymap.set('n', '<leader>bg', function()
 	local bg = vim.opt.background:get()
 	if bg == "dark" then
@@ -87,6 +96,7 @@ vim.keymap.set('n', '<leader>bg', function()
 	end
 end)
 
+-- Python Formatting
 vim.api.nvim_create_autocmd("FileType",
 	{
 		pattern = { "python" },

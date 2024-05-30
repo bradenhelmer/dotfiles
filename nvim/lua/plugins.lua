@@ -15,7 +15,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"numToStr/Comment.nvim",
 	"airblade/vim-gitgutter",
 	"Yggdroot/indentLine",
 	"907th/vim-auto-save",
@@ -146,9 +145,6 @@ cmp.setup.cmdline(':', {
 local nvim_syncer = require("nvim-syncer")
 vim.keymap.set('n', "<leader>sd", ":SyncDown<CR>")
 vim.keymap.set('n', "<leader>su", ":SyncUp<CR>")
-
--- Comment
-require('Comment').setup()
 
 -- Autopairs
 require('nvim-autopairs').setup()
