@@ -20,7 +20,6 @@ vim.cmd.cnoreabbrev({ "Qall", "qall" })
 -- Setters and other misc config/globals
 vim.opt.cursorline = true
 vim.opt.syntax = 'on'
-vim.opt.grepprg = 'ag --nogroup --nocolor -i'
 vim.opt.number = true
 vim.opt.encoding = 'utf-8'
 vim.opt.mouse = 'a'

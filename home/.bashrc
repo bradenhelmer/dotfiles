@@ -144,6 +144,7 @@ alias l='ls -CF'
 alias la='ls -A'
 alias lc='llvm-config'
 alias ll='ls -alF'
+alias llvm='cd ~/dev/tools/llvm/llvm-project'
 alias ls='ls --color=auto'
 alias nvim='/usr/local/bin/nvim'
 alias vim='/usr/local/bin/nvim'
@@ -155,6 +156,7 @@ alias src='source ~/.bashrc'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
+alias wez='nvim ~/.wezterm.lua'
 
 export EDITOR=nvim
 export VIMRUNTIME="/home/bradenhelmer/dev/tools/neovim/runtime/"

@@ -29,7 +29,7 @@ require("lazy").setup({
 	"honza/vim-snippets",
 	"gko/vim-coloresque",
 	"junegunn/fzf",
-	"junegunn/fzf.vim",
+	"ibhagwan/fzf-lua",
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
@@ -41,7 +41,6 @@ require("lazy").setup({
 	"Raimondi/delimitMate",
 	"windwp/nvim-autopairs",
 	"bradenhelmer/nvim-syncer",
-	"folke/neodev.nvim",
 	"sindrets/diffview.nvim",
 	"chrisbra/unicode.vim"
 })
@@ -61,7 +60,8 @@ vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
 vim.g.auto_save = 1
 
 -- fzf
-vim.keymap.set('n', '<Leader>e', ':Files<CR>')
+require('fzf-lua').setup({'fzf-vim'})
+vim.keymap.set('n', '<Leader>e', ':lua require("fzf-lua").files()<CR>')
 
 -- barbar.nvim
 vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>')

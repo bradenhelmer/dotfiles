@@ -1,21 +1,23 @@
 #!/bin/bash
 # Collects config files and pushes them to github
-OLD_DIR=$PWD
-cd ~/dev/tools/src_cfgs
+mkdir -p home nvim
 
 # Neovim files
-cp ~/.config/nvim/init.lua ~/dev/tools/src_cfgs/nvim/init.lua
-cp ~/.config/nvim/lua/* ~/dev/tools/src_cfgs/nvim/lua/
+cp ~/.config/nvim/init.lua ~/dev/tools/dotfiles/nvim/
+cp -r ~/.config/nvim/lua ~/dev/tools/dotfiles/nvim/
 
 # .bashrc
-cp ~/.bashrc ~/dev/tools/src_cfgs/bash/.bashrc
-cp ~/.oh-my-bash/themes/customRR/customRR.theme.sh ~/dev/tools/src_cfgs/bash/customRR.theme.sh
-cp ~/.fzf.bash ~/dev/tools/src_cfgs/bash/.fzf.bash
+cp ~/.bashrc ~/dev/tools/dotfiles/home/.bashrc
+cp ~/.oh-my-bash/themes/customRR/customRR.theme.sh ~/dev/tools/dotfiles//customRR.theme.sh
+cp ~/.fzf.bash ~/dev/tools/dotfiles/home/.fzf.bash
 
 # tmux
-cp ~/.tmux.conf ~/dev/tools/src_cfgs/tmux/.tmux.conf
+cp ~/.tmux.conf ~/dev/tools/dotfiles/home/.tmux.conf
 
-# auto git commit push pull
+# wezterm
+cp ~/.wezterm.lua ~/dev/tools/dotfiles/home/
+
+# # auto git commit push pull
 if [ -z "$1" ]
 then
     echo "enter a commit message"
@@ -24,4 +26,3 @@ else
     git commit -am "$1"
     git push
 fi
-cd $OLD_DIR
