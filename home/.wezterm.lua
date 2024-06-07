@@ -3,7 +3,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Appearance Config
-config.adjust_window_size_when_changing_font_size = true
+config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = 'Vs Code Dark+ (Gogh)'
 config.colors = {
 	tab_bar = {
@@ -13,7 +13,10 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.tab_max_width = 24
 config.font = wezterm.font 'DroidSansM Nerd Font'
-config.window_decorations = "TITLE"
+config.font_size = 12
+config.initial_cols = 96
+config.initial_rows = 24
+config.window_decorations = "TITLE|RESIZE"
 config.window_padding = {
 	left = 0,
 	right = 0,
@@ -73,6 +76,11 @@ config.keys = {
 		action = act.ActivateTabRelative(1)
 	},
 	{
+		key = 'p',
+		mods = 'LEADER',
+		action = act.ActivateTabRelative(-1)
+	},
+	{
 		key = 'w',
 		mods = 'LEADER',
 		action = act.ShowLauncherArgs { flags = 'TABS|WORKSPACES' }
@@ -105,5 +113,13 @@ config.keys = {
 		action = act.CloseCurrentTab { confirm = true }
 	}
 }
+
+for i = 1, 9 do
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = 'LEADER',
+		action = act.ActivateTab(i-1)
+	})
+end
 
 return config
