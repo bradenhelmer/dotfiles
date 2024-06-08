@@ -85,6 +85,11 @@ config.keys = {
 		mods = 'LEADER',
 		action = act.ShowLauncherArgs { flags = 'TABS|WORKSPACES' }
 	},
+	{
+		key = '`',
+		mods = 'LEADER',
+		action = act.ActivateLastTab
+	},
 	-- Resize
 	{
 		key = 'H',
