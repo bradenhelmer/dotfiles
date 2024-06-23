@@ -16,7 +16,7 @@ function Format()
 	})
 end
 
-vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua Format()<CR>", opts)
+vim.api.nvim_set_keymap('n', '<leader>fr', "<cmd>lua Format()<CR>", opts)
 
 -- Same with code action
 function CodeAction()

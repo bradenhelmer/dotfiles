@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 -- Appearance Config
 config.adjust_window_size_when_changing_font_size = false
 config.color_scheme = 'Vs Code Dark+ (Gogh)'
+-- config.color_scheme = 'Dissonance (Gogh)'
 config.colors = {
 	tab_bar = {
 	}
@@ -14,6 +15,7 @@ config.tab_bar_at_bottom = true
 config.tab_max_width = 24
 config.font = wezterm.font 'DroidSansM Nerd Font'
 config.font_size = 12
+config.warn_about_missing_glyphs = false
 config.initial_cols = 96
 config.initial_rows = 24
 config.window_decorations = "TITLE|RESIZE"

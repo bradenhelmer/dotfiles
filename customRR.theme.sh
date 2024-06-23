@@ -31,7 +31,7 @@ function _omb_theme_PROMPT_COMMAND() {
 
     if [[ -n "$SSH_CLIENT" ]]; then
         local ssh_str="${_omb_prompt_bold_blue}("$USER"@SSH)${_omb_prompt_reset_color}"
-        PS1="${ssh_str}"+" ${PS1}"
+        PS1="${ssh_str} ${PS1}"
     fi
 
     local scm_info=$(scm_prompt_info)

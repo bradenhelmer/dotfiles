@@ -161,6 +161,9 @@ alias wez='nvim ~/.wezterm.lua'
 export EDITOR=nvim
 export VIMRUNTIME="/home/bradenhelmer/dev/tools/neovim/runtime/"
 
+export CC=/usr/local/bin/clang
+export CXX=/usr/local/bin/clang++
+
 #PATH
 export PATH="~/dev/tools/flutter/bin:$PATH"
 export PATH="~/.local/bin:$PATH"

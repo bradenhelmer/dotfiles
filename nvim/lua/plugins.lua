@@ -28,8 +28,6 @@ require("lazy").setup({
 	"nvim-lualine/lualine.nvim",
 	"honza/vim-snippets",
 	"gko/vim-coloresque",
-	"junegunn/fzf",
-	"ibhagwan/fzf-lua",
 	"neovim/nvim-lspconfig",
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
@@ -42,7 +40,18 @@ require("lazy").setup({
 	"windwp/nvim-autopairs",
 	"bradenhelmer/nvim-syncer",
 	"sindrets/diffview.nvim",
-	"chrisbra/unicode.vim"
+	"chrisbra/unicode.vim",
+	{
+		'nvim-telescope/telescope.nvim',
+		tag = '0.1.8',
+		dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+	{
+		'nvim-telescope/telescope-fzf-native.nvim',
+		build =
+		'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+	}
+
 })
 
 vim.keymap.set('n', '<leader>lz', ':Lazy<CR>')
@@ -53,15 +62,19 @@ local c = require('vscode.colors').get_colors()
 require('vscode').setup({
 	italic_comments = true,
 })
-require('vscode').load()
+vim.cmd.colorscheme "vscode"
 
 -- vim-auto-save
 vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
 vim.g.auto_save = 1
 
--- fzf
-require('fzf-lua').setup({'fzf-vim'})
-vim.keymap.set('n', '<Leader>e', ':lua require("fzf-lua").files()<CR>')
+-- telescope.nvim
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+require('telescope').load_extension('fzf')
+
 
 -- barbar.nvim
 vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>')

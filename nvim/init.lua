@@ -1,5 +1,6 @@
 -- Set leader first for lazy
 vim.g.mapleader = ','
+vim.g.python3_host_prog = '/home/bradenhelmer/dev/__py_nvim_env__/bin/python3.10'
 
 require("plugins")
 require("lsp")
@@ -28,7 +29,6 @@ vim.opt.rnu = true
 vim.opt.formatoptions = { j = true, c = true, r = true, o = true, q = true, l = true }
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.updatetime = 50
-vim.g.python_host_prog = '/usr/bin/python3'
 vim.opt.cindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
