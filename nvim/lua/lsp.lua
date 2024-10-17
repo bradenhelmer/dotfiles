@@ -41,7 +41,6 @@ vim.api.nvim_set_keymap('n', '<leader>ls', "<cmd>lua Toggle_lsp()<CR>", opts)
 
 local on_attach = function(client, buffer)
 	vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
 	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gD', "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gd', "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(buffer, 'n', 'K', "<cmd>lua vim.lsp.buf.hover()<CR>", opts)

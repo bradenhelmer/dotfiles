@@ -94,13 +94,3 @@ vim.keymap.set('n', '<leader>bg', function()
 		vim.opt.background = "dark"
 	end
 end)
-
--- Python Formatting
-vim.api.nvim_create_autocmd("FileType",
-	{
-		pattern = { "python" },
-		callback = function()
-			vim.keymap.set('n', "<leader>ff",
-				":!black %<CR><CR>")
-		end
-	})

@@ -121,3 +121,9 @@ export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
 export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
 export MODULAR_HOME="/home/bradenhelmer/.modular"
 . "$HOME/.cargo/env"
+
+export LLVM_DEBUG_BUILD="/home/bradenhelmer/dev/projects/llvm-dev/debug"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/bradenhelmer/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
