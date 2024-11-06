@@ -30,9 +30,9 @@ vim.api.nvim_set_keymap('v', '<leader>ca', "<cmd>lua CodeAction()<CR>", opts)
 local LspStatus = true
 function Toggle_lsp()
 	if LspStatus then
-		vim.cmd(":LspStop<CR>")
+		vim.cmd('LspStop')
 	else
-		vim.cmd(":LspStart<CR>")
+		vim.cmd('LspStart')
 	end
 	LspStatus = not LspStatus
 end
@@ -40,6 +40,7 @@ end
 vim.api.nvim_set_keymap('n', '<leader>ls', "<cmd>lua Toggle_lsp()<CR>", opts)
 
 local on_attach = function(client, buffer)
+	if LspStatus then
 	vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gD', "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gd', "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
@@ -48,6 +49,7 @@ local on_attach = function(client, buffer)
 	vim.api.nvim_buf_set_keymap(buffer, 'n', '<C-k>', "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(buffer, 'n', '<leader>rn', "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	vim.api.nvim_buf_set_keymap(buffer, 'n', 'gr', "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+	end
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -96,9 +98,9 @@ lspconfig.cmake.setup {
 }
 
 -- Bash
-lspconfig.bashls.setup { capabilities = capabilities, on_attach = on_attach }
+-- lspconfig.bashls.setup { capabilities = capabilities, on_attach = on_attach }
 
 -- Java
 lspconfig.jdtls.setup { capabilities = capabilities, on_attach = on_attach }
 
-lspconfig.lua_ls.setup {}
+-- lspconfig.lua_ls.setup {}

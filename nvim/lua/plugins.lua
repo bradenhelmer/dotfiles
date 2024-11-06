@@ -16,7 +16,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"airblade/vim-gitgutter",
-	"Yggdroot/indentLine",
 	"907th/vim-auto-save",
 	"nvim-treesitter/nvim-treesitter",
 	"matze/vim-move",
@@ -50,6 +49,22 @@ require("lazy").setup({
 		'nvim-telescope/telescope-fzf-native.nvim',
 		build =
 		'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+    		vim.g.mkdp_filetypes = { "markdown" }
+  		end,
+		ft = { "markdown" }
+	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
 	}
 })
 
@@ -160,3 +175,6 @@ vim.keymap.set('n', "<leader>su", ":SyncUp<CR>")
 
 -- Autopairs
 require('nvim-autopairs').setup()
+
+-- indent-blankline
+require("ibl").setup()
