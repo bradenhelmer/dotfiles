@@ -13,7 +13,6 @@ OSH_THEME="customRR"
 OMB_USE_SUDO=true
 
 OMB_PROMPT_SHOW_PYTHON_VENV=true  # enable
-
 completions=(
   git
   composer
@@ -27,7 +26,9 @@ aliases=(
 plugins=(
   git
   bashmarks
+  git-open
 )
+
 
 source "$OSH"/oh-my-bash.sh
 
@@ -83,9 +84,9 @@ export PATH="~/dev/tools/swift/usr/bin:$PATH"
 export PATH="/usr/local/include:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/jdtls/bin:$PATH"
-export PATH="/home/bradenhelmer/.modular/pkg/packages.modular.com_mojo/bin:$PATH"
-export PATH="~/.cargo/env:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/gradle-8.7/bin:$PATH"
+export PATH="/usr/local/cuda-12.6/bin${PATH:+:${PATH}}"
+export PATH="~/dev/tools/cmake/bin:$PATH"
 
 # Linker
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
@@ -116,14 +117,16 @@ export INCLUDE_PATH="/usr/include:$INCLUDE_PATH"
 # Random
 export TOOLS="/home/bradenhelmer/dev/tools"
 export PROJECTS="/home/bradenhelmer/dev/projects"
-export CUDA_HOME="/usr/local/hpc_sdk/Linux_x86_64/24.1/cuda"
 export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
 export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
-export MODULAR_HOME="/home/bradenhelmer/.modular"
-. "$HOME/.cargo/env"
 
 export LLVM_DEBUG_BUILD="/home/bradenhelmer/dev/projects/llvm-dev/debug"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/bradenhelmer/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+set +o noclobber
+
+source /home/bradenhelmer/.local/share/bash-completion/completions/deno.bash
+export PATH="$PATH:/home/bradenhelmer/.modular/bin"

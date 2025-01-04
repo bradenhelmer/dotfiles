@@ -118,6 +118,12 @@ config.keys = {
 		key = 'x',
 		mods = 'LEADER',
 		action = act.CloseCurrentTab { confirm = true }
+	},
+	-- Send tick
+	{
+		key = '`',
+		mods = 'CTRL',
+		action = act.SendString '`'
 	}
 }
 
