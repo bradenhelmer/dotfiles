@@ -89,6 +89,9 @@ lspconfig.tblgen_lsp_server.setup {
 	}
 }
 
+-- MLIR
+lspconfig.mlir_lsp_server.setup { capabilities = capabilities, on_attach = on_attach }
+
 -- Python
 lspconfig.pyright.setup { capabilities = capabilities, on_attach = on_attach,
 	settings = 

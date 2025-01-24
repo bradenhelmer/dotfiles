@@ -26,7 +26,6 @@ aliases=(
 plugins=(
   git
   bashmarks
-  git-open
 )
 
 
@@ -56,6 +55,7 @@ alias lc='llvm-config'
 alias ll='ls -alF'
 alias llvm='cd ~/dev/tools/llvm/llvm-project'
 alias ls='ls --color=auto'
+alias m='make'
 alias nvim='/usr/local/bin/nvim'
 alias vim='/usr/local/bin/nvim'
 alias proj='cd ~/dev/projects'
@@ -96,6 +96,7 @@ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
 export CLASSPATH="/usr/local/lib:$CLASSPATH"
+export CLASSPATH=".:/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
