@@ -7,7 +7,7 @@ cp -r ~/.config/nvim ~/dev/tools/dotfiles
 
 # .bashrc
 cp ~/.bashrc ~/dev/tools/dotfiles/home/.bashrc
-cp ~/.oh-my-bash/custom/themes/customRR ~/dev/tools/dotfiles
+cp -r ~/.oh-my-bash/custom/themes/customRR ~/dev/tools/dotfiles
 cp ~/.fzf.bash ~/dev/tools/dotfiles/home/.fzf.bash
 
 # tmux
