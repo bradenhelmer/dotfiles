@@ -35,6 +35,7 @@ source "$OSH"/oh-my-bash.sh
 alias arc='ssh $SSHARC'
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
+alias cndact='source ~/dev/tools/anaconda3/bin/activate'
 alias cdnvim='cd ~/.config/nvim'
 alias class='cd ~/dev/school'
 alias dev='cd ~/dev'
@@ -85,13 +86,14 @@ export PATH="/usr/local/include:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/jdtls/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/gradle-8.7/bin:$PATH"
-export PATH="/usr/local/cuda-12.6/bin${PATH:+:${PATH}}"
+export PATH="/usr/local/cuda-12.8/bin${PATH:+:${PATH}}"
 export PATH="~/dev/tools/cmake/bin:$PATH"
 
 # Linker
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64:$LD_LIBRARY_PATH
 
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64

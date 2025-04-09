@@ -3,12 +3,11 @@
 mkdir -p home nvim
 
 # Neovim files
-cp ~/.config/nvim/init.lua ~/dev/tools/dotfiles/nvim/
-cp -r ~/.config/nvim/lua ~/dev/tools/dotfiles/nvim/
+cp -r ~/.config/nvim ~/dev/tools/dotfiles
 
 # .bashrc
 cp ~/.bashrc ~/dev/tools/dotfiles/home/.bashrc
-cp ~/.oh-my-bash/themes/customRR/customRR.theme.sh ~/dev/tools/dotfiles//customRR.theme.sh
+cp ~/.oh-my-bash/custom/themes/customRR ~/dev/tools/dotfiles
 cp ~/.fzf.bash ~/dev/tools/dotfiles/home/.fzf.bash
 
 # tmux
