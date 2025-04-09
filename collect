@@ -1,6 +1,4 @@
 #!/bin/bash
-# Collects config files and pushes them to github
-mkdir -p home nvim
 
 # Neovim files
 cp -r ~/.config/nvim ~/dev/tools/dotfiles
