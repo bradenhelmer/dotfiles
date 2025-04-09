@@ -29,6 +29,12 @@ function _omb_theme_PROMPT_COMMAND() {
         PS1+="${python_env} "
     fi
 
+    # Check if inside a Pixi/Magic/Mojo environment
+    if [[ "$PIXI_IN_SHELL" == 1 ]]; then
+      local mojo_env="${_omb_prompt_bold_green}($(basename "$PIXI_PROJECT_NAME"))${_omb_prompt_reset_color}"
+      PS1+="${mojo_env} "
+    fi
+
     if [[ -n "$SSH_CLIENT" ]]; then
         local ssh_str="${_omb_prompt_bold_blue}("$USER"@SSH)${_omb_prompt_reset_color}"
         PS1="${ssh_str}"+" ${PS1}"
