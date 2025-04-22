@@ -121,5 +121,5 @@ lspconfig.ts_ls.setup{ capabilities = capabilities, on_attach = on_attach }
 lspconfig.svelte.setup{ capabilities = capabilities, on_attach = on_attach }
 
 -- Mojo
-lspconfig.mojo.setup{ capabilities = capabilities, on_attach = on_attach }
+lspconfig.mojo.setup{ capabilities = capabilities, on_attach = on_attach, cmd = {"mojo-lsp-server", "-I", "src"} }
 
