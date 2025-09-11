@@ -1,6 +1,7 @@
 -- Set leader first for lazy
 vim.g.mapleader = ','
-vim.g.python3_host_prog = '/home/bradenhelmer/dev/__py_nvim_env__/bin/python3.12'
+
+vim.g.python3_host_prog = '/home/bradenhelmer/dev/__py_nvim_env__/bin/python3'
 
 require("plugins")
 require("lsp")

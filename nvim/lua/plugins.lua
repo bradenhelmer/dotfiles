@@ -51,21 +51,13 @@ require("lazy").setup({
 		'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
 	},
 	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		build = "cd app && yarn install",
-		init = function()
-	   		vim.g.mkdp_filetypes = { "markdown" }
-	 		end,
-		ft = { "markdown" }
-	},
-	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		---@module "ibl"
 		---@type ibl.config
 		opts = {},
-	}
+	},
+    -- "github/copilot.vim"
 })
 
 vim.keymap.set('n', '<leader>lz', ':Lazy<CR>')
@@ -178,3 +170,8 @@ require('nvim-autopairs').setup()
 
 -- indent-blankline
 require("ibl").setup()
+
+-- Copilot
+-- vim.g.copilot_no_tab_map = true
+-- vim.g.copilot_enabled = false
+-- vim.keymap.set('i', '<A-TAB>', 'copilot#Accept("<CR>")', { expr = true, silent = true })

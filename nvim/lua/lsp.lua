@@ -56,7 +56,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 
 -- CCLS
-lspconfig.ccls.setup {
+lspconfig.clangd.setup {
 	filetypes = {
 		"c",
 		"cuda",
@@ -93,25 +93,13 @@ lspconfig.tblgen_lsp_server.setup {
 lspconfig.mlir_lsp_server.setup { capabilities = capabilities, on_attach = on_attach }
 
 -- Python
-lspconfig.pyright.setup { capabilities = capabilities, on_attach = on_attach,
-	settings = 
-		{
-			python = {
-				analysis = {
-					typeCheckingMode = "off"
-				}
-			}
-		}
-}
+lspconfig.pyright.setup { capabilities = capabilities, on_attach = on_attach }
 
 -- CMake
-lspconfig.cmake.setup {
-	capabilities = capabilities,
-	on_attach = on_attach
-}
-
--- Bash
--- lspconfig.bashls.setup { capabilities = capabilities, on_attach = on_attach }
+-- lspconfig.cmake.setup {
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach
+-- }
 
 -- Java
 lspconfig.jdtls.setup { capabilities = capabilities, on_attach = on_attach }
@@ -122,4 +110,3 @@ lspconfig.svelte.setup{ capabilities = capabilities, on_attach = on_attach }
 
 -- Mojo
 lspconfig.mojo.setup{ capabilities = capabilities, on_attach = on_attach, cmd = {"mojo-lsp-server", "-I", "src"} }
-
