@@ -53,12 +53,6 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		---@module "ibl"
-		---@type ibl.config
-		opts = {},
-	},
 })
 
 local opts = { silent = true }
@@ -77,16 +71,18 @@ vim.g.auto_save = 1
 
 -- telescope.nvim
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+vim.keymap.set("n", "<leader>ff", function()
+	builtin.find_files({ hidden = true, no_ignore = false, file_ignore_patterns = { "^.git/" } })
+end, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 require("telescope").load_extension("fzf")
 
 -- barbar.nvim
-vim.keymap.set("n", "<C-,>", "<Cmd>BufferPrevious<CR>")
-vim.keymap.set("n", "<C-.>", "<Cmd>BufferNext<CR>")
-vim.keymap.set("n", "<C-c>", "<Cmd>BufferClose<CR>")
-vim.keymap.set("n", "<C-s-c>", "<Cmd>BufferRestore<CR>")
+vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>")
+vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>")
+vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
+vim.keymap.set("n", "<A-s-c>", "<Cmd>BufferRestore<CR>")
 
 -- tree-stiter
 require("nvim-treesitter.configs").setup({
@@ -169,11 +165,6 @@ conform.setup({
 		c = { "clang-format" },
 		cpp = { "clang-format" },
 		cuda = { "clang-format" },
-	},
-	formatters = {
-		["clang-format"] = {
-			prepend_args = { "--style={IndentWidth: 4, ColumnLimit: 100}" },
-		},
 	},
 })
 vim.keymap.set("n", "<leader>fr", conform.format, opts)
