@@ -53,6 +53,12 @@ require("lazy").setup({
 		"stevearc/conform.nvim",
 		opts = {},
 	},
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		opts = {},
+	},
 })
 
 local opts = { silent = true }

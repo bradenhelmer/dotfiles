@@ -98,43 +98,21 @@ export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64:$LD_LIBRARY_PATH
 
-# JAVA
-export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
-export CLASSPATH="/usr/local/lib:$CLASSPATH"
-export CLASSPATH=".:/usr/local/lib/antlr-4.13.1-complete.jar:$CLASSPATH"
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # FZF Stuff
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_COMPLETION_TRIGGER="**"
 export FZF_COMPLETION_OPTS='--border --info=inline'
 
-# NCSU Arc 
-export SSHARC="bthelmer@arc.csc.ncsu.edu"
-
-# NVHPC
-export INCLUDE_PATH="/usr/local/include:$INCLUDE_PATH"
-export INCLUDE_PATH="/usr/include:$INCLUDE_PATH"
-
-# Random
-export TOOLS="/home/bradenhelmer/dev/tools"
-export PROJECTS="/home/bradenhelmer/dev/projects"
-export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
-export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
-
-export LLVM_DEBUG_BUILD="/home/bradenhelmer/dev/projects/llvm-dev/debug"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/bradenhelmer/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# TailScale
+PC="ubuntu-d.siberian-tegus.ts.net"
 
 set +o noclobber
+<<<<<<< HEAD
 
 source /home/bradenhelmer/.local/share/bash-completion/completions/deno.bash
 export PATH="$PATH:/home/bradenhelmer/.modular/bin"
 . "$HOME/.cargo/env"
 export PATH="/home/bradenhelmer/.pixi/bin:$PATH"
+=======
+>>>>>>> c37e473b2bfd1a6f91f18b5ed76efd288aa8800e
