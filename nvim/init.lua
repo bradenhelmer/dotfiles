@@ -1,6 +1,6 @@
 -- Set leader first for lazy
 vim.g.mapleader = ','
-vim.g.python3_host_prog = '/home/bradenhelmer/dev/__py_nvim_env__/bin/python3.12'
+vim.g.python3_host_prog = '/home/bradenhelmer/dev/__py_nvim_env__/bin/python3'
 
 require("plugins")
 require("lsp")
@@ -33,15 +33,9 @@ vim.opt.cindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 vim.opt.scrolloff = 10
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "cuda", "cpp", "h", "c" },
-	callback = function()
-		vim.opt_local.shiftwidth = 2
-	end
-})
 
 -- Vanilla Mappings
 vim.keymap.set('n', '\\\\', '<ESC> :!')

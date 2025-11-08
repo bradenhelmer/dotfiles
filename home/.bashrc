@@ -35,6 +35,7 @@ source "$OSH"/oh-my-bash.sh
 alias arc='ssh $SSHARC'
 alias bsh='nvim ~/.bashrc'
 alias c='clear'
+alias cm='cmake --build build -t '
 alias cndact='source ~/dev/tools/anaconda3/bin/activate'
 alias cdnvim='cd ~/.config/nvim'
 alias class='cd ~/dev/school'
@@ -61,9 +62,11 @@ alias nvim='/usr/local/bin/nvim'
 alias vim='/usr/local/bin/nvim'
 alias proj='cd ~/dev/projects'
 alias pshconf='~/dev/tools/dotfiles/collect'
+alias pps='pipenv shell'
 alias py='python3'
 alias python='python3'
 alias src='source ~/.bashrc'
+alias sudovim='sudo -E $(which nvim)'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
@@ -133,3 +136,5 @@ set +o noclobber
 
 source /home/bradenhelmer/.local/share/bash-completion/completions/deno.bash
 export PATH="$PATH:/home/bradenhelmer/.modular/bin"
+. "$HOME/.cargo/env"
+export PATH="/home/bradenhelmer/.pixi/bin:$PATH"
