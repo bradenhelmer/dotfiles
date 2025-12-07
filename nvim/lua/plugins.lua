@@ -112,15 +112,23 @@ cmp.setup({
 		end,
 	},
 
-	mapping = cmp.mapping.preset.insert({
+	mapping = {
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				cmp_ultisnips_mappings.expand_or_jump_forwards(fallback)
+			end
+		end, { "i", "s" }),
+		["<S-Tab>"] = cmp.mapping(function(fallback)
+			cmp_ultisnips_mappings.jump_backwards(fallback)
+		end, { "i", "s" }),
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
-		["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-		["<S-TAB>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm(),
-	}),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	},
 
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
