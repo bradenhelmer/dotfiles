@@ -1,0 +1,21 @@
+#!/bin/bash
+
+DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Neovim files
+rm -rf ~/.config/nvim
+cp -r "$DOTFILES_DIR/nvim" ~/.config/nvim
+
+# .bashrc
+cp "$DOTFILES_DIR/home/.bashrc" ~/.bashrc
+
+# oh-my-bash theme
+cp -r "$DOTFILES_DIR/customRR" ~/.oh-my-bash/custom/themes/customRR
+
+# fzf config
+cp "$DOTFILES_DIR/home/.fzf.bash" ~/.fzf.bash
+
+# wezterm
+cp "$DOTFILES_DIR/home/.wezterm.lua" ~/.wezterm.lua
+
+echo "Dotfiles installed successfully!"
