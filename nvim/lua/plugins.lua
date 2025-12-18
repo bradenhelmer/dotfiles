@@ -121,13 +121,37 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 		["<S-Tab>"] = cmp.mapping(function(fallback)
-			cmp_ultisnips_mappings.jump_backwards(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				cmp_ultisnips_mappings.jump_backwards(fallback)
+			end
 		end, { "i", "s" }),
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.abort(),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<CR>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				local entry = cmp.get_selected_entry()
+				-- Check if the selected entry is a snippet
+				local is_snippet = entry and (entry.source.name == "ultisnips" or entry.source.name == "vim-snippets")
+				-- Check if we're already in a snippet before confirming
+				local in_snippet = vim.fn["UltiSnips#CanJumpForwards"]() == 1
+					or vim.fn["UltiSnips#CanJumpBackwards"]() == 1
+				cmp.confirm({ select = false })
+				-- Only auto-jump if we're in a snippet AND the confirmed item is NOT a snippet
+				if in_snippet and not is_snippet then
+					vim.defer_fn(function()
+						if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+							vim.fn["UltiSnips#JumpForwards"]()
+						end
+					end, 0)
+				end
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	},
 
 	sources = cmp.config.sources({

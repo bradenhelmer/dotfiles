@@ -10,12 +10,3 @@ cp ~/.fzf.bash ~/dev/tools/dotfiles/home/.fzf.bash
 
 # wezterm
 cp ~/.wezterm.lua ~/dev/tools/dotfiles/home/
-
-# if [ -z "$1" ]
-# then
-# 	echo "Enter a commit message"
-# else
-# 	git --git-dir=/home/bradenhelmer/dev/tools/dotfiles/.git --work-tree=/home/bradenhelmer/dev/tools/dotfiles add .
-# 	git --git-dir=/home/bradenhelmer/dev/tools/dotfiles/.git --work-tree=/home/bradenhelmer/dev/tools/dotfiles commit -am "$1"
-# 	git --git-dir=/home/bradenhelmer/dev/tools/dotfiles/.git --work-tree=/home/bradenhelmer/dev/tools/dotfiles push
-# fi
