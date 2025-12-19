@@ -42,7 +42,6 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-
 -- ClangD
 vim.lsp.config("clangd", {
 	filetypes = {
@@ -52,14 +51,14 @@ vim.lsp.config("clangd", {
 		"objc",
 		"objcpp",
 		"h",
-		"inc"
+		"inc",
 	},
 	init_options = {
 		cache = {
-			directory = "/tmp/ccls"
-		}
+			directory = "/tmp/ccls",
+		},
 	},
-	root_markers = { 'compile_commands.json', '.ccls', 'build', '.git' },
+	root_markers = { "compile_commands.json", ".ccls", "build", ".git" },
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -71,9 +70,9 @@ vim.lsp.config("tblgen_lsp_server", {
 	on_attach = on_attach,
 	cmd = {
 		"tblgen-lsp-server",
-		"--tablegen-compilation-database=tablegen_compile_commands.yml"
-	}
-});
+		"--tablegen-compilation-database=tablegen_compile_commands.yml",
+	},
+})
 vim.lsp.enable("tblgen_lsp_server")
 
 -- MLIR
