@@ -18,4 +18,6 @@ cp "$DOTFILES_DIR/home/.fzf.bash" ~/.fzf.bash
 # wezterm
 cp "$DOTFILES_DIR/home/.wezterm.lua" ~/.wezterm.lua
 
+cp "$DOTFILES_DIR/home/.clang-format" ~/.clang-format
+
 echo "Dotfiles installed successfully!"

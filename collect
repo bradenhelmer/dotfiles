@@ -7,6 +7,7 @@ cp -r ~/.config/nvim ~/dev/tools/dotfiles
 cp ~/.bashrc ~/dev/tools/dotfiles/home/.bashrc
 cp -r ~/.oh-my-bash/custom/themes/customRR ~/dev/tools/dotfiles
 cp ~/.fzf.bash ~/dev/tools/dotfiles/home/.fzf.bash
+cp ~/.clang-format ~/dev/tools/dotfiles/.clang-format
 
 # wezterm
 cp ~/.wezterm.lua ~/dev/tools/dotfiles/home/

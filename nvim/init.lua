@@ -26,7 +26,40 @@ vim.opt.encoding = "utf-8"
 vim.opt.mouse = "a"
 vim.opt.background = "dark"
 vim.opt.rnu = true
-vim.opt.formatoptions = { j = true, c = true, r = true, o = true, q = true, l = true }
+-- Format options:
+-- j: Delete comment leader when joining lines
+-- c: Auto-wrap comments using textwidth
+-- q: Allow formatting comments with 'gq'
+-- l: Long lines are not broken in insert mode
+-- r: Auto-insert comment leader after Enter (kept for block comments)
+-- o: Auto-insert comment leader after o/O (kept for block comments)
+vim.opt.formatoptions = { j = true, c = true, q = true, l = true, r = true, o = true }
+
+-- Disable auto-comment continuation for line-comment-only filetypes
+-- Keep it enabled for languages with block comments (C, C++, Java, JS, CSS, etc.)
+local line_comment_filetypes = {
+	"python",
+	"sh",
+	"bash",
+	"zsh",
+	"fish",
+	"ruby",
+	"perl",
+	"lua",
+	"vim",
+	"conf",
+	"dosini",
+	"gitconfig",
+	"yaml",
+	"toml",
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = line_comment_filetypes,
+	callback = function()
+		vim.opt_local.formatoptions:remove({ "r", "o" })
+	end,
+})
 vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 50
 vim.opt.cindent = true
