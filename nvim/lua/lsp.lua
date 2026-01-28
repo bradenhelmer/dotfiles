@@ -83,11 +83,12 @@ vim.lsp.config("mlir_lsp_server", {
 vim.lsp.enable("mlir_lsp_server")
 
 -- Python
-vim.lsp.config("pyright", {
+vim.lsp.config("basedpyright", {
 	capabilities = capabilities,
 	on_attach = on_attach,
+	settings = {},
 })
-vim.lsp.enable("pyright")
+vim.lsp.enable("basedpyright")
 
 -- Mojo
 vim.lsp.config("mojo", {

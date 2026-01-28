@@ -202,10 +202,11 @@ local conform = require("conform")
 conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		python = { "black", append_args = { "--line-length", "100" } },
+		python = { "ruff_format", "ruff_organize_imports" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
 		cuda = { "clang-format" },
+		cmake = { "cmake_format" },
 	},
 })
 vim.keymap.set("n", "<leader>fr", conform.format, opts)
