@@ -82,11 +82,11 @@ vim.lsp.config("mlir_lsp_server", {
 })
 vim.lsp.enable("mlir_lsp_server")
 
+
 -- Python
 vim.lsp.config("basedpyright", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	settings = {},
 })
 vim.lsp.enable("basedpyright")
 
@@ -97,3 +97,6 @@ vim.lsp.config("mojo", {
 	cmd = { "mojo-lsp-server", "-I", "src" },
 })
 vim.lsp.enable("mojo")
+
+-- CMake
+vim.lsp.enable("neocmake")

@@ -70,7 +70,10 @@ alias sudovim='sudo -E $(which nvim)'
 alias tool='cd ~/dev/tools'
 alias tx='tmux'
 alias txnvim='nvim ~/.tmux.conf'
+alias wcr='wezterm cli rename-workspace'
 alias wez='nvim ~/.wezterm.lua'
+alias ur='uv run'
+alias uvim='uv run nvim .'
 
 export EDITOR=nvim
 export VIMRUNTIME="/home/bradenhelmer/dev/tools/neovim/runtime/"
@@ -138,3 +141,6 @@ source /home/bradenhelmer/.local/share/bash-completion/completions/deno.bash
 export PATH="$PATH:/home/bradenhelmer/.modular/bin"
 . "$HOME/.cargo/env"
 export PATH="/home/bradenhelmer/.pixi/bin:$PATH"
+
+# opencode
+export PATH=/home/bradenhelmer/.opencode/bin:$PATH
