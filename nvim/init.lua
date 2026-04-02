@@ -62,7 +62,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 50
-vim.opt.cindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
