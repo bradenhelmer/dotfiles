@@ -16,7 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"airblade/vim-gitgutter",
 	"907th/vim-auto-save",
-	"nvim-treesitter/nvim-treesitter",
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		build = ":TSUpdate",
+		branch = "main",
+	},
 	"matze/vim-move",
 	"tpope/vim-surround",
 	"Mofiqul/vscode.nvim",
@@ -41,7 +46,6 @@ require("lazy").setup({
 	"chrisbra/unicode.vim",
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{
@@ -94,9 +98,9 @@ vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
 vim.keymap.set("n", "<A-s-c>", "<Cmd>BufferRestore<CR>")
 
 -- tree-stiter
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter").setup({
 	sync_install = false,
-	ensure_installed = { "python", "cpp", "vim", "lua" },
+	ensure_installed = { "python", "cpp", "vim", "lua", "markdown", "c", "cuda", "tablegen" },
 	ignore_install = { "" },
 	highlight = {
 		enable = true,

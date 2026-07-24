@@ -75,7 +75,20 @@ vim.keymap.set("n", "<leader><tab>", "<c-w>w")
 vim.keymap.set("n", "<c-s>", ":w<cr>")
 vim.keymap.set("i", "<c-s>", "<esc>:w<cr>a")
 vim.keymap.set("n", "<leader>x", ":Explore<cr>")
-vim.keymap.set("n", "<leader>R", ":source " .. vim.fn.stdpath("config") .. "/init.lua<CR>")
+vim.keymap.set("n", "<leader>R", function()
+	for mod in pairs(package.loaded) do
+		if mod:match("^plugins") or mod:match("^lsp") then
+			package.loaded[mod] = nil
+		end
+	end
+	dofile(vim.fn.stdpath("config") .. "/init.lua")
+	for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+		if vim.api.nvim_buf_is_loaded(buf) then
+			pcall(vim.treesitter.start, buf)
+		end
+	end
+	vim.notify("Config reloaded!")
+end)
 vim.keymap.set("n", "<leader>so", function()
 	vim.opt.scrolloff = 999 - vim.o.scrolloff
 end)
@@ -162,26 +175,16 @@ vim.keymap.set("n", "<C-y>", function()
 end, { noremap = true, silent = true, desc = "Scroll up one line" })
 
 -- LLVM / MLIR Stuff
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.inc", "*.def" },
-	callback = function()
-		vim.opt.filetype = "cpp"
-	end,
+vim.filetype.add({
+  extension = {
+    mlir = "mlir",
+    td = "tablegen",
+    ll = "llvm",
+    inc = "cpp",
+    def = "cpp",
+  },
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.mlir" },
-	callback = function()
-		vim.opt.filetype = "mlir"
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.ll" },
-	callback = function()
-		vim.opt.filetype = "llvm"
-	end,
-})
 -- Quick Debug Statments
 vim.keymap.set("n", "<leader>T", function()
 	local filetype = vim.bo.filetype

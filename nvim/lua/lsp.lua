@@ -69,18 +69,18 @@ vim.lsp.config("tblgen_lsp_server", {
 	capabilities = capabilities,
 	on_attach = on_attach,
 	cmd = {
-		"tblgen-lsp-server",
+		"tblgen-lsp-server-22",
 		"--tablegen-compilation-database=tablegen_compile_commands.yml",
 	},
 })
 vim.lsp.enable("tblgen_lsp_server")
 
 -- MLIR
-vim.lsp.config("mlir_lsp_server", {
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-vim.lsp.enable("mlir_lsp_server")
+-- vim.lsp.config("mlir_lsp_server", {
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+-- vim.lsp.enable("mlir_lsp_server")
 
 
 -- Python

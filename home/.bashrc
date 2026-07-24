@@ -68,8 +68,6 @@ alias python='python3'
 alias src='source ~/.bashrc'
 alias sudovim='sudo -E $(which nvim)'
 alias tool='cd ~/dev/tools'
-alias tx='tmux'
-alias txnvim='nvim ~/.tmux.conf'
 alias wcr='wezterm cli rename-workspace'
 alias wez='nvim ~/.wezterm.lua'
 alias ur='uv run'
@@ -78,8 +76,8 @@ alias uvim='uv run nvim .'
 export EDITOR=nvim
 export VIMRUNTIME="/home/bradenhelmer/dev/tools/neovim/runtime/"
 
-export CC=/usr/local/bin/clang
-export CXX=/usr/local/bin/clang++
+# export CC=/usr/local/bin/clang
+# export CXX=/usr/local/bin/clang++
 
 #PATH
 export PATH="~/dev/tools/flutter/bin:$PATH"
@@ -92,14 +90,12 @@ export PATH="/usr/local/include:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/jdtls/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/gradle-8.7/bin:$PATH"
-export PATH="/usr/local/cuda-13.0/bin${PATH:+:${PATH}}"
+export PATH="/usr/local/cuda-13.3/bin${PATH:+:${PATH}}"
 export PATH="~/dev/tools/cmake/bin:$PATH"
 
 # Linker
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/12:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-13.0/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-13.3/lib64:$LD_LIBRARY_PATH
 
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
@@ -126,8 +122,6 @@ export INCLUDE_PATH="/usr/include:$INCLUDE_PATH"
 # Random
 export TOOLS="/home/bradenhelmer/dev/tools"
 export PROJECTS="/home/bradenhelmer/dev/projects"
-export GNU_HEADERS="/usr/lib/gcc/x86_64-linux-gnu/12/include"
-export GNU_LIBS="/usr/lib/gcc/x86_64-linux-gnu/12"
 
 export LLVM_DEBUG_BUILD="/home/bradenhelmer/dev/projects/llvm-dev/debug"
 
