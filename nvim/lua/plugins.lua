@@ -66,6 +66,17 @@ require("lazy").setup({
 		end,
 		ft = { "markdown" },
 	},
+	{
+		"ggml-org/llama.vim",
+		init = function()
+			vim.g.llama_config = {
+				show_info = false,
+				keymap_fim_accept_full = "<C-y>",
+				keymap_fim_accept_line = "<C-n>",
+				endpoint_fim = "http://127.0.0.1:8080/infill",
+			}
+		end,
+	},
 })
 
 local opts = { silent = true }
@@ -77,6 +88,10 @@ vim.opt.background = "dark"
 local c = require("vscode.colors").get_colors()
 require("vscode").setup({ italic_comments = true })
 vim.cmd.colorscheme("vscode")
+
+-- llama.vim highlight overrides (ghost text needs to be visually distinct)
+vim.api.nvim_set_hl(0, "llama_hl_fim_hint", { fg = "#6c6c6c" })
+vim.api.nvim_set_hl(0, "llama_hl_fim_info", { fg = "#77ff2f" })
 
 -- vim-auto-save
 vim.g.auto_save_events = { "InsertLeave", "TextChanged" }
@@ -97,17 +112,18 @@ vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>")
 vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
 vim.keymap.set("n", "<A-s-c>", "<Cmd>BufferRestore<CR>")
 
--- tree-stiter
+-- tree-sitter
 require("nvim-treesitter").setup({
-	sync_install = false,
-	ensure_installed = { "python", "cpp", "vim", "lua", "markdown", "c", "cuda", "tablegen" },
-	ignore_install = { "" },
-	highlight = {
-		enable = true,
-		disable = { "" },
-		additional_vim_regex_highlighting = false,
-	},
-	indent = { enable = true, disable = { "yaml", "c", "cpp", "cuda" } },
+	install_dir = vim.fn.stdpath("data") .. "/site",
+})
+
+require("nvim-treesitter").install({ "python", "cpp", "vim", "lua", "markdown", "c", "cuda", "tablegen" })
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function()
+		pcall(vim.treesitter.start)
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
 })
 
 -- lualine
