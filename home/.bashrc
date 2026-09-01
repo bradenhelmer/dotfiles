@@ -90,12 +90,12 @@ export PATH="/usr/local/include:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/jdtls/bin:$PATH"
 export PATH="/home/bradenhelmer/dev/tools/gradle-8.7/bin:$PATH"
-export PATH="/usr/local/cuda-13.3/bin${PATH:+:${PATH}}"
+export PATH="/usr/local/cuda/bin${PATH:+:${PATH}}"
 export PATH="~/dev/tools/cmake/bin:$PATH"
 
 # Linker
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/usr/local/cuda-13.3/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
 # JAVA
 export JAVA_HOME=/usr/lib/jvm/java-18-openjdk-amd64
@@ -138,3 +138,6 @@ export PATH="/home/bradenhelmer/.pixi/bin:$PATH"
 
 # opencode
 export PATH=/home/bradenhelmer/.opencode/bin:$PATH
+
+# MLIR LSP server
+export MLIR_LSP_SERVER=/home/bradenhelmer/dev/tools/cutlass/cutlass-compiler-build/tools/cutlass-lsp-server/cutlass-lsp-server

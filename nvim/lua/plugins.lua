@@ -59,7 +59,7 @@ require("lazy").setup({
 	},
 	{
 		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		cmd = { "MarkdownreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 		build = "cd app && yarn install",
 		init = function()
 			vim.g.mkdp_filetypes = { "markdown" }
@@ -71,8 +71,8 @@ require("lazy").setup({
 		init = function()
 			vim.g.llama_config = {
 				show_info = false,
-				keymap_fim_accept_full = "<C-y>",
-				keymap_fim_accept_line = "<C-n>",
+				keymap_fim_accept_full = "<S-Tab>",
+				keymap_fim_accept_line = "<C-l>",
 				endpoint_fim = "http://127.0.0.1:8080/infill",
 			}
 		end,
@@ -163,13 +163,15 @@ cmp.setup({
 		["<CR>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				local entry = cmp.get_selected_entry()
-				-- Check if the selected entry is a snippet
-				local is_snippet = entry and (entry.source.name == "ultisnips" or entry.source.name == "vim-snippets")
-				-- Check if we're already in a snippet before confirming
+				if not entry then
+					cmp.abort()
+					fallback()
+					return
+				end
+				local is_snippet = entry.source.name == "ultisnips" or entry.source.name == "vim-snippets"
 				local in_snippet = vim.fn["UltiSnips#CanJumpForwards"]() == 1
 					or vim.fn["UltiSnips#CanJumpBackwards"]() == 1
 				cmp.confirm({ select = false })
-				-- Only auto-jump if we're in a snippet AND the confirmed item is NOT a snippet
 				if in_snippet and not is_snippet then
 					vim.defer_fn(function()
 						if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
@@ -227,6 +229,11 @@ conform.setup({
 		cpp = { "clang-format" },
 		cuda = { "clang-format" },
 		cmake = { "cmake_format" },
+	},
+	formatters = {
+		["clang-format"] = {
+			prepend_args = { "--style=LLVM" },
+		},
 	},
 })
 vim.keymap.set("n", "<leader>fr", conform.format, opts)

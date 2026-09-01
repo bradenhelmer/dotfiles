@@ -63,9 +63,19 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.clipboard = "unnamedplus"
 vim.opt.updatetime = 50
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 2
+
+-- Override to 4-space indent for Python (PEP 8)
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		vim.opt_local.tabstop = 4
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.softtabstop = 4
+	end,
+})
 vim.opt.scrolloff = 10
 
 -- Vanilla Mappings

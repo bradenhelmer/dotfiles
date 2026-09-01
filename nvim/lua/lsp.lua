@@ -42,6 +42,33 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+-- `cmd` as function must return an RPC client (not a command list).
+-- Resolve a build-tree binary relative to the project root.
+local function project_cmd(bin, args, fallback)
+	return function(dispatchers, config)
+		local cmd = { bin }
+		local root = config.root_dir
+		if root then
+			local full = root .. "/build/bin/" .. bin
+			if vim.fn.executable(full) == 1 then
+				cmd = { full }
+			elseif fallback then
+				cmd = { fallback }
+			end
+		elseif fallback then
+			cmd = { fallback }
+		end
+		for _, a in ipairs(args) do
+			cmd[#cmd + 1] = root and string.gsub(a, "{root}", root) or a
+		end
+		return vim.lsp.rpc.start(cmd, dispatchers, {
+			cwd = config.cmd_cwd,
+			env = config.cmd_env,
+			detached = config.detached,
+		})
+	end
+end
+
 -- ClangD
 vim.lsp.config("clangd", {
 	filetypes = {
@@ -59,6 +86,18 @@ vim.lsp.config("clangd", {
 		},
 	},
 	root_markers = { "compile_commands.json", ".ccls", "build", ".git" },
+	cmd = function(dispatchers, config)
+		local cmd = { "clangd" }
+		local root = config.root_dir
+		if root and vim.fn.filereadable(root .. "/build/compile_commands.json") == 1 then
+			cmd[#cmd + 1] = "--compile-commands-dir=" .. root .. "/build"
+		end
+		return vim.lsp.rpc.start(cmd, dispatchers, {
+			cwd = config.cmd_cwd,
+			env = config.cmd_env,
+			detached = config.detached,
+		})
+	end,
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
@@ -68,19 +107,32 @@ vim.lsp.enable("clangd")
 vim.lsp.config("tblgen_lsp_server", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	cmd = {
-		"tblgen-lsp-server-22",
-		"--tablegen-compilation-database=tablegen_compile_commands.yml",
-	},
+	cmd = project_cmd("tblgen-lsp-server", {
+		"--tablegen-compilation-database={root}/build/tablegen_compile_commands.yml",
+	}, "tblgen-lsp-server-22"),
 })
 vim.lsp.enable("tblgen_lsp_server")
 
 -- MLIR
--- vim.lsp.config("mlir_lsp_server", {
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- })
--- vim.lsp.enable("mlir_lsp_server")
+-- Set MLIR_LSP_SERVER to a custom dialect build's server binary, e.g.
+--   export MLIR_LSP_SERVER=/path/to/cutlass-lsp-server
+-- Falls back to mlir-lsp-server-22 on PATH when unset/not executable.
+vim.lsp.config("mlir_lsp_server", {
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = function(dispatchers, config)
+		local bin = os.getenv("MLIR_LSP_SERVER")
+		if not (bin and vim.fn.executable(bin) == 1) then
+			bin = "mlir-lsp-server-22"
+		end
+		return vim.lsp.rpc.start({ bin }, dispatchers, {
+			cwd = config.cmd_cwd,
+			env = config.cmd_env,
+			detached = config.detached,
+		})
+	end,
+})
+vim.lsp.enable("mlir_lsp_server")
 
 
 -- Python
@@ -94,7 +146,25 @@ vim.lsp.enable("basedpyright")
 vim.lsp.config("mojo", {
 	capabilities = capabilities,
 	on_attach = on_attach,
-	cmd = { "mojo-lsp-server", "-I", "src" },
+	cmd = function(dispatchers, config)
+		local candidates = {
+			"/home/bradenhelmer/dev/projects/cfd-lake/.venv/bin/mojo-lsp-server",
+		}
+		local root = config.root_dir
+		if root then
+			table.insert(candidates, 1, root .. "/.venv/bin/mojo-lsp-server")
+		end
+		for _, bin in ipairs(candidates) do
+			if vim.fn.executable(bin) == 1 then
+				return vim.lsp.rpc.start({ bin, "-I", "src" }, dispatchers, {
+					cwd = config.cmd_cwd,
+					env = config.cmd_env,
+					detached = config.detached,
+				})
+			end
+		end
+		vim.notify("mojo-lsp-server not found (looked in " .. table.concat(candidates, ", ") .. ")", vim.log.levels.ERROR)
+	end,
 })
 vim.lsp.enable("mojo")
 

@@ -4,8 +4,23 @@ local config = wezterm.config_builder()
 
 -- Appearance Config
 config.adjust_window_size_when_changing_font_size = false
+-- function get_appearance()
+--   if wezterm.gui then
+--     return wezterm.gui.get_appearance()
+--   end
+--   return 'Dark'
+-- end
+--
+-- function scheme_for_appearance(appearance)
+--   if appearance:find 'Dark' then
+--     return 'Vs Code Dark+ (Gogh)'
+--   else
+--     return 'Vs Code Light+ (Gogh)'
+--   end
+-- end
+
 config.color_scheme = 'Vs Code Dark+ (Gogh)'
--- config.color_scheme = 'Dissonance (Gogh)'
+
 config.colors = {
 	tab_bar = {
 	}
